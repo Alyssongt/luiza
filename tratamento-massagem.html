@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massagem Relaxante | Luiza Moura Estética</title>
+    
+    <!-- Fontes Oficiais -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ================= PALETA DE CORES PREMIUM ================= */
+        :root {
+            --dourado: #e0ab48; 
+            --brand-purple: #e0ab48; 
+            --bronze-rico: #c99335; 
+            --preto-estetico: #1A1A1A; 
+            --fundo-creme: #FDFBF7; 
+            --texto-claro: #FDFBF7; 
+            --texto-escuro: #1A1A1A; 
+            --texto-cinza: #5A5A5A; 
+            --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ================= RESET E BASE ================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--fundo-creme);
+            color: var(--texto-escuro);
+            line-height: 1.8;
+            background-image: radial-gradient(rgba(224, 171, 72, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px; 
+            padding-top: 120px; /* Impede que o menu superior cubra o conteúdo */
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* ================= MARCA D'ÁGUA DA LOGO NO FUNDO ================= */
+        body::before {
+            content: ''; position: fixed; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); width: 100vw; height: 100vh;
+            background-image: url('logotipo (3).png'); 
+            background-repeat: no-repeat; background-position: center; background-size: 500px; 
+            opacity: 0.04; z-index: -10; pointer-events: none; 
+        }
+
+        /* ================= PROTEÇÃO DE IMAGENS ================= */
+        img, video {
+            -webkit-user-drag: none; user-select: none; -webkit-touch-callout: none;
+        }
+
+        /* ================= NAVEGAÇÃO SUPERIOR FIXA ================= */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(224, 171, 72, 0.2);
+            z-index: 1000;
+        }
+        
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        .brand-box { display: flex; align-items: center; gap: 20px; text-decoration: none !important; color: inherit !important; cursor: pointer; }
+        .nav-logo {
+            display: flex; justify-content: center; align-items: center;
+            height: 75px; width: 75px; border-radius: 50%;
+            border: 2px solid var(--dourado); background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(224, 171, 72, 0.2); overflow: hidden; flex-shrink: 0;
+        }
+        .nav-logo img { height: 100px; width: 100px; object-fit: cover; display: block; filter: saturate(1.4) contrast(1.1); }
+
+        .brand-text-wrapper { display: flex; flex-direction: column; justify-content: center; }
+        .brand-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--dourado) !important; line-height: 1; margin-bottom: 3px; }
+        .brand-sub { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2.5px; color: var(--dourado) !important; }
+        
+        .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--texto-escuro); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: var(--transicao); position: relative; }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--dourado); transition: var(--transicao); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--dourado); }
+
+        .btn-nav { background-color: var(--dourado); color: #fff !important; padding: 12px 28px; border-radius: 30px; font-weight: 600; letter-spacing: 1.5px; box-shadow: 0 4px 15px rgba(224, 171, 72, 0.4); }
+        .btn-nav:hover { background-color: var(--bronze-rico); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(224, 171, 72, 0.5); }
+
+        /* ====== BOTÃO VOLTAR REDONDO ====== */
+        .topo-voltar { text-align: left; margin-bottom: 30px; margin-top: 20px; }
+        .btn-voltar { 
+            display: inline-block; color: var(--dourado); text-decoration: none; 
+            font-weight: 600; font-size: 14px; text-transform: uppercase; 
+            transition: 0.3s; border: 1px solid var(--dourado); 
+            padding: 10px 25px; border-radius: 30px; 
+        }
+        .btn-voltar:hover { background-color: var(--dourado); color: #fff; }
+
+        /* ================= HEADER TRATAMENTO ================= */
+        .header-tratamento { text-align: center; margin-bottom: 50px; }
+        .header-tratamento h1 { font-size: 3.5rem; color: var(--dourado); margin-bottom: 15px; }
+        .header-tratamento p { font-size: 1.25rem; color: var(--texto-cinza); font-weight: 500; }
+
+        /* ====== GRID DETALHADO DO PROTOCOLO ====== */
+        .protocolo-box { background: #fff; padding: 60px 50px; border-radius: 20px; box-shadow: 0 6px 30px rgba(0,0,0,0.05); margin-bottom: 60px; text-align: center; }
+        .protocolo-box h2 { font-size: 2.4rem; color: var(--dourado); margin-bottom: 20px; }
+        .protocolo-box .intro-proto { font-size: 1.15rem; color: var(--texto-cinza); max-width: 800px; margin: 0 auto 35px auto; }
+        
+        .grid-passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 30px 0; text-align: left; }
+        .passo-item { background: var(--fundo-creme); padding: 15px 20px; border-radius: 12px; font-size: 1.05rem; font-weight: 600; color: var(--texto-escuro); display: flex; align-items: center; gap: 12px; border: 1px solid rgba(0,0,0,0.03); transition: var(--transicao); }
+        .passo-item:hover { transform: translateY(-3px); border-color: var(--dourado); }
+        .passo-item span { background: var(--dourado); color: #fff; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem; flex-shrink: 0; }
+
+        .info-rodape { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding-top: 30px; border-top: 1px solid #f0f0f0; margin-top: 40px; }
+        .info-rodape p { font-size: 1.1rem; color: var(--texto-escuro); font-weight: 500; }
+        .info-rodape i { color: var(--dourado); margin-right: 8px; }
+
+        /* ====== CONTEÚDO DETALHADO (CARDS DESIGN) ====== */
+        .resultados-lista { display: flex; flex-direction: column; gap: 45px; margin-bottom: 60px; }
+        
+        /* Card com Fundo Dourado */
+        .resultado-item { display: flex; align-items: center; gap: 35px; background-color: var(--dourado); padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px rgba(224, 171, 72, 0.2); }
+        
+        /* Card com Fundo Branco Intercalado */
+        .resultado-item:nth-child(even) { flex-direction: row-reverse; background-color: #fff; border: 1px solid rgba(224, 171, 72, 0.2); box-shadow: 0 6px 25px rgba(0,0,0,0.05); }
+        
+        .resultado-midia { flex: 1; text-align: center; }
+        .resultado-midia i { font-size: 100px; color: rgba(255,255,255,0.9); } 
+        .resultado-item:nth-child(even) .resultado-midia i { color: var(--dourado); }
+        
+        .resultado-texto { flex: 1; padding: 0 15px; }
+        .resultado-texto h3 { font-size: 1.8rem; margin-bottom: 18px; color: #fff; }
+        .resultado-item:nth-child(even) .resultado-texto h3 { color: var(--texto-escuro); }
+        .resultado-texto p { color: #fff; font-size: 1.1rem; margin-bottom: 14px; line-height: 1.8; font-weight: 500; }
+        .resultado-item:nth-child(even) .resultado-texto p { color: var(--texto-cinza); }
+        
+        .resultado-texto ul { list-style: none; margin-top: 20px; color: #fff; }
+        .resultado-item:nth-child(even) .resultado-texto ul { color: var(--texto-cinza); }
+        .resultado-texto ul li { margin-bottom: 10px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
+        .resultado-texto ul li i { color: #fff; font-size: 14px; }
+        .resultado-item:nth-child(even) .resultado-texto ul li i { color: var(--dourado); }
+
+        /* ================= CTA PREMIUM (ÁREA DE AGENDAMENTO) ================= */
+        .cta-premium { background: var(--preto-estetico); color: #fff; text-align: center; padding: 80px 20px; border-radius: 20px; margin-bottom: 60px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .cta-premium h2 { color: #fff; font-size: 2.5rem; margin-bottom: 25px; }
+        .btn-agendar { display: inline-block; background: var(--dourado); color: #fff; padding: 20px 50px; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 1.1rem; box-shadow: 0 10px 25px rgba(224, 171, 72, 0.3); transition: 0.4s; }
+        .btn-agendar:hover { background-color: var(--bronze-rico); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(224, 171, 72, 0.4); }
+
+        /* ================= RODAPÉ ================= */
+        footer { background: var(--preto-estetico); color: #fff; text-align: center; padding: 40px 0; border-top: 1px solid rgba(224, 171, 72, 0.2); }
+        footer h3 { color: var(--dourado); margin-bottom: 10px; font-size: 24px; }
+        footer p { color: #A0A0A0; font-size: 14px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            body { padding-top: 100px; }
+            .header-tratamento h1 { font-size: 2.5rem; }
+            .protocolo-box { padding: 40px 20px; }
+            .resultado-item, .resultado-item:nth-child(even) { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .resultado-texto ul li { justify-content: center; }
+            .cta-premium h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+  <!-- NAVEGAÇÃO SUPERIOR -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="brand-box">
+            <div class="nav-logo"><img src="logotipo (3).png" alt="Luiza Moura"></div>
+            <div class="brand-text-wrapper">
+                <div class="brand-name">Luiza Moura</div>
+                <div class="brand-sub">Estética Avançada</div>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#servicos">Tratamentos</a></li>
+            <li><a href="index.html#agendar" class="btn-nav">Agendar</a></li>
+        </ul>
+    </div>
+  </nav>
+
+    <div class="container">
+        
+        <!-- BOTÃO VOLTAR -->
+        <div class="topo-voltar">
+            <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar para o Início</a>
+        </div>
+
+        <div class="header-tratamento">
+            <h1>Massagem Relaxante</h1>
+            <p>Desconecte-se da rotina e permita-se um momento de puro bem-estar físico e mental.</p>
+        </div>
+
+        <div class="resultados-lista">
+            
+            <!-- Bloco 1: A Experiência -->
+            <div class="resultado-item">
+                <div class="resultado-midia">
+                    <!-- Ícone que remete a spa/relaxamento -->
+                    <i class="fas fa-spa"></i>
+                </div>
+                <div class="resultado-texto">
+                    <h3>Uma Pausa Necessária</h3>
+                    <p>Em um mundo cada vez mais acelerado, nosso corpo acumula tensões que afetam nossa saúde e até nosso humor. A Massagem Relaxante atua exatamente na descompressão dessa sobrecarga diária.</p>
+                    <p>Através de toques suaves, contínuos e do uso de óleos essenciais terapêuticos, criamos uma atmosfera perfeita para que você possa se reconectar consigo mesma e aliviar todo o estresse acumulado.</p>
+                </div>
+            </div>
+
+            <!-- Bloco 2: Benefícios -->
+            <div class="resultado-item">
+                <div class="resultado-midia">
+                    <!-- Ícone que remete a respiração/leveza -->
+                    <i class="fas fa-wind"></i>
+                </div>
+                <div class="resultado-texto">
+                    <h3>Equilíbrio de Corpo e Mente</h3>
+                    <p>Muito além do relaxamento muscular, nossas manobras estimulam a liberação de endorfina e serotonina (os hormônios do bem-estar e da felicidade). Confira os benefícios:</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Alívio imediato de tensões e dores musculares.</li>
+                        <li><i class="fas fa-check"></i> Melhora na qualidade do sono e redução da ansiedade.</li>
+                        <li><i class="fas fa-check"></i> Aumento da circulação sanguínea e oxigenação celular.</li>
+                        <li><i class="fas fa-check"></i> Sensação prolongada de leveza e tranquilidade.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PROTOCOLO COMPLETO EM GRID -->
+        <div class="protocolo-box">
+            <h2>O que esperar da sua sessão?</h2>
+            <p class="intro-proto">Nossa sala é cuidadosamente preparada com cromoterapia, aromaterapia e música ambiente relaxante. Cada detalhe é pensado para proporcionar uma experiência sensorial única.</p>
+            
+            <div class="grid-passos">
+                <div class="passo-item"><span>1</span> Preparação do Ambiente Terapêutico</div>
+                <div class="passo-item"><span>2</span> Escolha de Óleos Essenciais e Cremes</div>
+                <div class="passo-item"><span>3</span> Deslizamentos Suaves e Contínuos</div>
+                <div class="passo-item"><span>4</span> Foco na Região Cervical e Ombros</div>
+                <div class="passo-item"><span>5</span> Alívio de Pontos de Tensão nas Costas</div>
+                <div class="passo-item"><span>6</span> Relaxamento Craniano e Despertar Suave</div>
+            </div>
+
+            <div class="info-rodape">
+                <p><i class="far fa-clock"></i> <strong>Duração da sessão:</strong> Aproximadamente 50 min a 1h.</p>
+                <p><i class="fas fa-leaf"></i> <strong>Indicação:</strong> Estresse, fadiga física, tensão muscular e ansiedade.</p>
+            </div>
+        </div>
+
+        <!-- ÁREA DE AGENDAMENTO PREMIUM -->
+        <div class="cta-premium">
+            <h2>Permita-se viver esse momento</h2>
+            <p style="color: #ccc; margin-bottom: 30px; font-size: 1.1rem;">Agende seu horário e venha recarregar as energias que você precisa.</p>
+            <a href="https://wa.me/5582981859596?text=Olá%20Luiza!%20Gostaria%20de%20agendar%20uma%20Massagem%20Relaxante." target="_blank" class="btn-agendar">Reservar Meu Momento</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container" style="padding: 0;">
+            <h3>Luiza Moura</h3>
+            <p>Estética Avançada © 2026. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    </script>
+</body>
+</html>

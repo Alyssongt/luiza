@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maquiagem Profissional | Luiza Moura Estética</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ================= PALETA DE CORES PREMIUM ================= */
+        :root {
+            --dourado: #e0ab48; 
+            --brand-purple: #e0ab48; 
+            --bronze-rico: #c99335; 
+            --preto-estetico: #1A1A1A; 
+            --fundo-creme: #FDFBF7; 
+            --texto-claro: #FDFBF7; 
+            --texto-escuro: #1A1A1A; 
+            --texto-cinza: #5A5A5A; 
+            --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ================= RESET E BASE ================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--fundo-creme);
+            color: var(--texto-escuro);
+            line-height: 1.8;
+            background-image: radial-gradient(rgba(224, 171, 72, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px; 
+            padding-top: 120px; 
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* ================= MARCA D'ÁGUA DA LOGO NO FUNDO ================= */
+        body::before {
+            content: ''; position: fixed; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); width: 100vw; height: 100vh;
+            background-image: url('logotipo (3).png'); 
+            background-repeat: no-repeat; background-position: center; background-size: 500px; 
+            opacity: 0.04; z-index: -10; pointer-events: none; 
+        }
+
+        /* ================= PROTEÇÃO DE IMAGENS ================= */
+        img, video { -webkit-user-drag: none; user-select: none; -webkit-touch-callout: none; }
+
+        /* ================= NAVEGAÇÃO SUPERIOR FIXA ================= */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(15px); padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(224, 171, 72, 0.2); z-index: 1000;
+        }
+        
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        .brand-box { display: flex; align-items: center; gap: 20px; text-decoration: none !important; color: inherit !important; cursor: pointer; }
+        .nav-logo {
+            display: flex; justify-content: center; align-items: center; height: 75px; width: 75px; border-radius: 50%;
+            border: 2px solid var(--dourado); background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(224, 171, 72, 0.2); overflow: hidden; flex-shrink: 0;
+        }
+        .nav-logo img { height: 100px; width: 100px; object-fit: cover; display: block; filter: saturate(1.4) contrast(1.1); }
+
+        .brand-text-wrapper { display: flex; flex-direction: column; justify-content: center; }
+        .brand-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--dourado) !important; line-height: 1; margin-bottom: 3px; }
+        .brand-sub { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2.5px; color: var(--dourado) !important; }
+        
+        .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--texto-escuro); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: var(--transicao); position: relative; }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--dourado); transition: var(--transicao); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--dourado); }
+
+        .btn-nav { background-color: var(--dourado); color: #fff !important; padding: 12px 28px; border-radius: 30px; font-weight: 600; letter-spacing: 1.5px; box-shadow: 0 4px 15px rgba(224, 171, 72, 0.4); }
+        .btn-nav:hover { background-color: var(--bronze-rico); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(224, 171, 72, 0.5); }
+
+        /* ====== BOTÃO VOLTAR REDONDO ====== */
+        .topo-voltar { text-align: left; margin-bottom: 30px; margin-top: 20px; }
+        .btn-voltar { 
+            display: inline-block; color: var(--dourado); text-decoration: none; 
+            font-weight: 600; font-size: 14px; text-transform: uppercase; 
+            transition: 0.3s; border: 1px solid var(--dourado); 
+            padding: 10px 25px; border-radius: 30px; 
+        }
+        .btn-voltar:hover { background-color: var(--dourado); color: #fff; }
+
+        /* ================= HEADER TRATAMENTO ================= */
+        .header-tratamento { text-align: center; margin-bottom: 50px; }
+        .header-tratamento h1 { font-size: 3.5rem; color: var(--dourado); margin-bottom: 15px; }
+        .header-tratamento p { font-size: 1.25rem; color: var(--texto-cinza); font-weight: 500; }
+
+        /* ====== CONTEÚDO DETALHADO (CARDS COM AS 5 FOTOS) ====== */
+        .resultados-lista { display: flex; flex-direction: column; gap: 45px; margin-bottom: 60px; }
+        
+        .resultado-item { display: flex; align-items: center; gap: 35px; background-color: var(--dourado); padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px rgba(224, 171, 72, 0.2); }
+        .resultado-item:nth-child(even) { flex-direction: row-reverse; background-color: #fff; border: 1px solid rgba(224, 171, 72, 0.2); box-shadow: 0 6px 25px rgba(0,0,0,0.05); }
+        
+        .resultado-midia { flex: 1; text-align: center; position: relative; }
+        .resultado-midia img { width: 100%; max-height: 480px; object-fit: cover; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); }
+        
+        .resultado-texto { flex: 1; padding: 0 15px; }
+        .resultado-texto h3 { font-size: 1.8rem; margin-bottom: 18px; color: #fff; }
+        .resultado-item:nth-child(even) .resultado-texto h3 { color: var(--texto-escuro); }
+        
+        .resultado-texto p { color: #fff; font-size: 1.1rem; margin-bottom: 14px; line-height: 1.8; font-weight: 500; }
+        .resultado-item:nth-child(even) .resultado-texto p { color: var(--texto-cinza); }
+
+        /* ====== GRID DETALHADO DO PROTOCOLO ====== */
+        .protocolo-box { background: #fff; padding: 60px 50px; border-radius: 20px; box-shadow: 0 6px 30px rgba(0,0,0,0.05); margin-bottom: 60px; text-align: center; }
+        .protocolo-box h2 { font-size: 2.4rem; color: var(--dourado); margin-bottom: 20px; }
+        .protocolo-box .intro-proto { font-size: 1.15rem; color: var(--texto-cinza); max-width: 800px; margin: 0 auto 35px auto; }
+        
+        .grid-passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 30px 0; text-align: left; }
+        .passo-item { background: var(--fundo-creme); padding: 15px 20px; border-radius: 12px; font-size: 1.05rem; font-weight: 600; color: var(--texto-escuro); display: flex; align-items: center; gap: 12px; border: 1px solid rgba(0,0,0,0.03); transition: var(--transicao); }
+        .passo-item:hover { transform: translateY(-3px); border-color: var(--dourado); }
+        .passo-item span { background: var(--dourado); color: #fff; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem; flex-shrink: 0; }
+
+        .info-rodape { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding-top: 30px; border-top: 1px solid #f0f0f0; margin-top: 40px; }
+        .info-rodape p { font-size: 1.1rem; color: var(--texto-escuro); font-weight: 500; }
+        .info-rodape i { color: var(--dourado); margin-right: 8px; }
+
+        /* ================= CTA PREMIUM (ÁREA DE AGENDAMENTO) ================= */
+        .cta-premium { background: var(--preto-estetico); color: #fff; text-align: center; padding: 80px 20px; border-radius: 20px; margin-bottom: 60px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .cta-premium h2 { color: #fff; font-size: 2.5rem; margin-bottom: 25px; }
+        .btn-agendar { display: inline-block; background: var(--dourado); color: #fff; padding: 20px 50px; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 1.1rem; box-shadow: 0 10px 25px rgba(224, 171, 72, 0.3); transition: 0.4s; }
+        .btn-agendar:hover { background-color: var(--bronze-rico); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(224, 171, 72, 0.4); }
+
+        /* ================= RODAPÉ ================= */
+        footer { background: var(--preto-estetico); color: #fff; text-align: center; padding: 40px 0; border-top: 1px solid rgba(224, 171, 72, 0.2); }
+        footer h3 { color: var(--dourado); margin-bottom: 10px; font-size: 24px; }
+        footer p { color: #A0A0A0; font-size: 14px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            body { padding-top: 100px; }
+            .header-tratamento h1 { font-size: 2.5rem; }
+            .protocolo-box { padding: 40px 20px; }
+            .resultado-item, .resultado-item:nth-child(even) { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .cta-premium h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="brand-box">
+            <div class="nav-logo"><img src="logotipo (3).png" alt="Luiza Moura"></div>
+            <div class="brand-text-wrapper">
+                <div class="brand-name">Luiza Moura</div>
+                <div class="brand-sub">Estética Avançada</div>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#servicos">Tratamentos</a></li>
+            <li><a href="index.html#agendar" class="btn-nav">Agendar</a></li>
+        </ul>
+    </div>
+  </nav>
+
+    <div class="container">
+        
+        <div class="topo-voltar">
+            <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar para o Início</a>
+        </div>
+
+        <div class="header-tratamento">
+            <h1>Maquiagem Profissional</h1>
+            <p>Realce seus traços com sofisticação e durabilidade para ocasiões inesquecíveis.</p>
+        </div>
+
+        <div class="resultados-lista">
+            
+            <div class="resultado-item">
+                <div class="resultado-midia">
+                    <img src="FRA.jpg" alt="Preparação de Pele">
+                </div>
+                <div class="resultado-texto">
+                    <h3>1. Preparação de Pele Profissional</h3>
+                    <p>O segredo de uma maquiagem impecável que dura a noite toda começa nos cuidados com a pele. Antes de qualquer produto de cor, realizamos uma higienização e hidratação profunda.</p>
+                    <p>Utilizamos produtos de alta performance (Skin Care) adaptados para o seu tipo de pele, criando uma tela perfeita, hidratada e blindada para receber a maquiagem.</p>
+                </div>
+            </div>
+
+            <div class="resultado-item">
+                <div class="resultado-midia">
+                    <img src="VIT.jpg" alt="Pele Blindada e Contorno">
+                </div>
+                <div class="resultado-texto">
+                    <h3>2. Pele Blindada e Cobertura Natural</h3>
+                    <p>Trabalhamos com a técnica de "Pele Blindada", utilizando bases e corretivos de marcas consagradas mundiais, garantindo resistência à água, ao suor e às lágrimas de emoção.</p>
+                    <p>O resultado é uma cobertura resistente, sem aspecto pesado. Realizamos contornos e iluminações estratégicas que valorizam a simetria única do seu rosto.</p>
+                </div>
+            </div>
+
+            <div class="resultado-item">
+                <div class="resultado-midia">
+                    <img src="IMGWATS.jpg" alt="Técnicas de Olhos">
+                </div>
+                <div class="resultado-texto">
+                    <h3>3. O Poder do Olhar</h3>
+                    <p>Os olhos são a janela da alma na maquiagem. Desenvolvemos desde o clássico e elegante esfumado sem marcações, até técnicas avançadas com brilho, delineados marcantes e cut crease.</p>
+                    <p>Sobrancelhas perfeitamente alinhadas e a aplicação de cílios postiços (tamanho escolhido por você) completam a estrutura para um olhar hipnotizante.</p>
+                </div>
+            </div>
+
+            <div class="resultado-item">
+                <div class="resultado-midia">
+                    <img src="img11.jpeg" alt="Detalhes e Acabamentos">
+                </div>
+                <div class="resultado-texto">
+                    <h3>4. Acabamento e Simetria dos Lábios</h3>
+                    <p>A escolha do batom certo e a técnica de contorno labial fazem toda a diferença na harmonia da maquiagem. Desenhamos seus lábios para garantir volume e definição perfeitos.</p>
+                    <p>Utilizamos fixadores profissionais para que a cor continue viva e no lugar, mesmo após brindes e celebrações durante o seu evento.</p>
+                </div>
+            </div>
+
+            <div class="resultado-item">
+                <div class="resultado-midia">
+                    <img src="img10.jpeg" alt="Resultado Final">
+                </div>
+                <div class="resultado-texto">
+                    <h3>5. Pronta para Arrasar</h3>
+                    <p>Uma maquiagem bem executada tem o poder de elevar a sua autoestima e transformar o seu evento em um momento ainda mais especial.</p>
+                    <p>Nossa produção é personalizada de acordo com o seu estilo: das madrinhas delicadas às formandas ousadas. O resultado é sofisticação pura, rendendo fotos belíssimas do início ao fim da festa.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="protocolo-box">
+            <h2>O que está incluso na sua produção?</h2>
+            <p class="intro-proto">Nossa maquiagem não é apenas sobre produtos, é uma experiência completa de embelezamento para que você se sinta maravilhosa no seu grande dia.</p>
+            
+            <div class="grid-passos">
+                <div class="passo-item"><span>1</span> Preparação de Pele (Skin Care)</div>
+                <div class="passo-item"><span>2</span> Camuflagem de Olheiras e Manchas</div>
+                <div class="passo-item"><span>3</span> Contorno e Iluminação Facial</div>
+                <div class="passo-item"><span>4</span> Maquiagem nos Olhos (Técnica à escolha)</div>
+                <div class="passo-item"><span>5</span> Aplicação de Cílios Postiços Profissionais</div>
+                <div class="passo-item"><span>6</span> Selagem e Bruma Fixadora (Blindagem)</div>
+            </div>
+
+            <div class="info-rodape">
+                <p><i class="far fa-clock"></i> <strong>Duração da produção:</strong> Aproximadamente 1h a 1h30.</p>
+                <p><i class="fas fa-camera"></i> <strong>Indicação:</strong> Casamentos, Formaturas, Ensaios e Eventos Sociais.</p>
+            </div>
+        </div>
+<div class="cta-premium">
+            <h2>Sinta-se deslumbrante no seu próximo evento</h2>
+            <p style="color: #ccc; margin-bottom: 30px; font-size: 1.1rem;">Deixe a produção por nossa conta e garanta uma maquiagem impecável que dura a festa inteira.</p>
+            <a href="https://wa.me/5582981859596?text=Olá%20Luiza!%20Gostaria%20de%20agendar%20minha%20Maquiagem%20Profissional." target="_blank" class="btn-agendar">Reservar Meu Horário</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container" style="padding: 0;">
+            <h3>Luiza Moura</h3>
+            <p>Estética Avançada © 2026. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    </script>
+</body>
+</html>

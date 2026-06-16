@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luiza Moura | Estética Avançada</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        /* ================= PALETA DE CORES PREMIUM (MODELO PERSONALIZADO) ================= */
+        :root {
+            --dourado: #e0ab48; /* Cor da sua logo aplicada como principal */
+            --brand-purple: #e0ab48; 
+            --dourado-escuro: #c99335;
+            --fundo-creme: #FDFBF7; 
+            --fundo-secao: #FFFFFF;
+            --azul-petroleo: #1A1A1A; /* Atualizado para o Preto Estético Premium */
+            --texto-escuro: #1A1A1A; 
+            --texto-cinza: #5A5A5A;
+            --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ================= RESET E BASE ================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--fundo-creme);
+            color: var(--texto-escuro);
+            line-height: 1.8;
+            background-image: radial-gradient(rgba(224, 171, 72, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px; 
+        }
+        
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* ================= PROTEÇÃO DE IMAGENS (COMPLETA) ================= */
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        /* ================= NAVEGAÇÃO ================= */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background-color: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(224, 171, 72, 0.2);
+            z-index: 1000;
+        }
+        
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+
+        .brand-box {
+            display: flex; align-items: center; gap: 20px; 
+            text-decoration: none !important; color: inherit !important; cursor: pointer;
+        }
+        
+        
+        .nav-logo {
+            display: flex; justify-content: center; align-items: center;
+            height: 75px; width: 75px; border-radius: 50%;
+            border: 2px solid var(--dourado); background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(224, 171, 72, 0.2);
+            overflow: hidden; flex-shrink: 0; margin-left: 0; 
+        }
+        .nav-logo:hover { box-shadow: 0 8px 25px rgba(224, 171, 72, 0.4); }
+        .nav-logo img { 
+            height: 100px; width: 100px; object-fit: cover; display: block;
+            margin-left:1px; margin-top: -1px; filter: saturate(1.4) contrast(1.1);
+        }
+
+        .brand-text-wrapper { display: flex; flex-direction: column; justify-content: center; }
+        .brand-name {
+            font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700;
+            color: var(--brand-purple) !important; line-height: 1; margin-bottom: 3px;
+        }
+        .brand-sub {
+            font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 2.5px; color: var(--brand-purple) !important; 
+        }
+        
+        .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
+        .nav-links a { 
+            text-decoration: none; color: var(--texto-escuro); font-weight: 600; 
+            font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+            transition: var(--transicao); position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -5px; left: 0; background-color: var(--dourado); transition: var(--transicao);
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--dourado); }
+
+        .btn-nav {
+            background-color: var(--dourado); color: #fff !important;
+            padding: 12px 28px; border-radius: 30px; font-weight: 600; 
+            letter-spacing: 1.5px; box-shadow: 0 4px 15px rgba(224, 171, 72, 0.4);
+        }
+        .btn-nav:hover { background-color: var(--dourado-escuro); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(224, 171, 72, 0.5); }
+
+        /* ================= TOPO: CARROSSEL ESTILO INSTAGRAM (Cor Branca Substituída) ================= */
+        .top-insta-slider {
+            padding: 160px 0 60px 0; 
+            background-color: #e9b658; /* FUNDO AGORA É A COR DA LOGO */
+            text-align: center;
+        }
+
+        .top-insta-slider h1 {
+            font-size: 2.5rem;
+            color: #ffffff; /* Texto branco para leitura perfeita no fundo da logo */
+            margin-bottom: 40px;
+        }
+        .top-insta-slider h1 span { color: var(--texto-escuro); font-style: italic; }
+
+        .top-insta-slider .swiper { max-width: 1000px; padding: 20px 40px; }
+        .top-insta-slider .swiper-slide {
+            aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); background-color: #fff;
+            position: relative;
+        }
+        .top-insta-slider .swiper-slide img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;
+        }
+        .top-insta-slider .swiper-slide:hover img { transform: scale(1.05); }
+
+        .zoom-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.3); display: flex; justify-content: center; align-items: center;
+            opacity: 0; transition: var(--transicao); pointer-events: none; color: #fff; font-size: 30px;
+        }
+        .top-insta-slider .swiper-slide:hover .zoom-overlay { opacity: 1; }
+
+        .top-insta-slider .btn-insta {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--texto-escuro); /* Botão escuro para destacar no fundo dourado */
+            color: #fff; padding: 14px 40px; border-radius: 30px; font-weight: 500;
+            font-size: 15px; text-decoration: none; margin-top: 30px; transition: var(--transicao);
+        }
+        .top-insta-slider .btn-insta:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+
+        .top-insta-slider .swiper-button-next, .top-insta-slider .swiper-button-prev { color: var(--texto-escuro); }
+        .top-insta-slider .swiper-button-next::after, .top-insta-slider .swiper-button-prev::after { font-size: 28px; font-weight: 300; }
+
+        /* ================= MODAL DE IMAGEM AMPLIADA (GALERIA) ================= */
+        .modal-imagem {
+            display: none; position: fixed; z-index: 10000; padding-top: 60px;
+            left: 0; top: 0; width: 100%; height: 100%; overflow: hidden;
+            background-color: rgba(0,0,0,0.9); backdrop-filter: blur(5px);
+        }
+        .modal-imagem-conteudo {
+            margin: auto; display: block; max-width: 90%; max-height: 80vh;
+            border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            animation: zoomAnim 0.3s ease; object-fit: contain; cursor: default;
+        }
+        @keyframes zoomAnim { from {transform:scale(0.8); opacity:0;} to {transform:scale(1); opacity:1;} }
+        
+        .fechar-imagem {
+            position: absolute; top: 20px; right: 35px; color: #fff;
+            font-size: 45px; font-weight: bold; cursor: pointer; transition: 0.3s; z-index: 10002;
+        }
+        .fechar-imagem:hover { color: var(--dourado); }
+
+        .seta-galeria {
+            cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%);
+            color: #fff; font-weight: bold; font-size: 30px; transition: 0.3s;
+            user-select: none; z-index: 10001; background: rgba(0,0,0,0.5);
+            border-radius: 50%; height: 60px; width: 60px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .seta-galeria:hover { background: rgba(0,0,0,0.9); color: var(--dourado); }
+        .seta-esq { left: 3%; }
+        .seta-dir { right: 3%; }
+
+        /* ================= SEÇÕES GERAIS ================= */
+        section { padding: 90px 0; }
+        .secao-titulo { text-align: center; margin-bottom: 60px; position: relative; }
+        .secao-titulo h2 { font-size: 2.8rem; color: var(--texto-escuro); margin-bottom: 15px; }
+        .secao-titulo h2 span { color: var(--dourado); }
+        .secao-titulo p { color: var(--texto-cinza); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+        .secao-titulo::after {
+            content: ''; display: block; width: 60px; height: 3px; background: var(--dourado); margin: 25px auto 0; border-radius: 2px;
+        }
+
+        /* ================= SERVIÇOS ================= */
+        .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .card-servico {
+            background: var(--fundo-secao); padding: 50px 40px; border-radius: 16px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: var(--transicao);
+            border: 1px solid rgba(224, 171, 72, 0.2); text-decoration: none; color: inherit; display: block; position: relative; overflow: hidden;
+        }
+        .card-servico::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--dourado); transform: scaleX(0); transition: var(--transicao);
+        }
+        .card-servico:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); }
+        .card-servico:hover::before { transform: scaleX(1); }
+        
+        .icone-wrap {
+            width: 80px; height: 80px; background: rgba(224, 171, 72, 0.1); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; margin: 0 auto 25px;
+            color: var(--dourado); font-size: 35px; transition: var(--transicao);
+        }
+        .card-servico:hover .icone-wrap { background: var(--dourado); color: #fff; transform: rotateY(360deg); }
+        .card-servico h3 { font-size: 1.6rem; margin-bottom: 15px; }
+        .card-servico p { font-size: 1rem; color: var(--texto-cinza); margin-bottom: 20px; line-height: 1.6; }
+        .link-detalhes { margin-top: auto; color: var(--dourado); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* ================= SOBRE A LUIZA ================= */
+        .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+        .imagem-moldura { position: relative; z-index: 1; }
+        .imagem-moldura::before {
+            content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%;
+            border: 2px solid var(--dourado); border-radius: 12px; z-index: -1;
+        }
+        .sobre-img { width: 100%; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); object-fit: cover; }
+        .sobre-texto h2 { font-size: 2.5rem; color: var(--texto-escuro); margin-bottom: 25px; }
+        .sobre-texto p { font-size: 1.1rem; color: var(--texto-cinza); margin-bottom: 20px; }
+        .sobre-texto ul { list-style: none; margin-top: 30px; }
+        .sobre-texto ul li { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; font-weight: 500; }
+        .sobre-texto ul li i { color: var(--dourado); font-size: 20px; background: rgba(224, 171, 72, 0.1); padding: 10px; border-radius: 50%; }
+
+        /* ================= DEPOIMENTOS ================= */
+        .depoimentos { background-color: var(--azul-petroleo); color: #fff; position: relative; }
+        .depoimentos::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 30px 30px; opacity: 0.5; pointer-events: none;
+        }
+        .depoimentos .secao-titulo h2 { color: #fff; }
+        .depoimentos .secao-titulo::after { background: var(--dourado); }
+        .depoimentos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; position: relative; z-index: 2; }
+        .card-depoimento { 
+            background: rgba(255,255,255,0.03); padding: 40px; border-radius: 16px; 
+            border: 1px solid rgba(224, 171, 72, 0.2); backdrop-filter: blur(5px);
+        }
+        .estrelas { color: var(--dourado); margin-bottom: 20px; font-size: 18px; }
+        .card-depoimento p { font-size: 1.1rem; font-style: italic; margin-bottom: 20px; line-height: 1.8; color: #E0E0E0; }
+
+        /* ================= AGENDAMENTO (Cor Branca Substituída) ================= */
+        #agendar { background-color: var(--dourado) !important; }
+        #agendar .secao-titulo h2 { color: #ffffff; }
+        #agendar .secao-titulo h2 span { color: var(--texto-escuro); }
+        #agendar .secao-titulo p { color: #ffffff; }
+        #agendar .secao-titulo::after { background: var(--texto-escuro); }
+
+        .agendar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+        .form-control { 
+            width: 100%; padding: 18px 20px; margin-bottom: 20px; border: 1px solid transparent; 
+            border-radius: 8px; font-family: 'Montserrat'; font-size: 15px; background: #fff;
+            transition: var(--transicao); box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .form-control:focus { outline: none; box-shadow: 0 0 0 4px rgba(26, 26, 26, 0.2); }
+        
+        .btn-submit { 
+            width: 100%; background: var(--texto-escuro); color: #fff; border: none; padding: 18px; 
+            border-radius: 8px; font-size: 16px; font-weight: 600; text-transform: uppercase; 
+            letter-spacing: 1px; cursor: pointer; transition: var(--transicao); 
+        }
+        .btn-submit:hover { background: #333; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+        
+        .contato-info { background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .contato-info div { margin-bottom: 30px; display: flex; align-items: flex-start; gap: 20px; }
+        .contato-info i { color: var(--dourado); font-size: 24px; margin-top: 5px; }
+
+        /* ================= MODAL DE SUCESSO ================= */
+        .modal-envio { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center; }
+        .modal-envio.ativo { display: flex; }
+        .modal-conteudo { background: #fff; padding: 50px 40px; border-radius: 20px; max-width: 500px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: slideUp 0.4s ease; }
+        @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .modal-envio .icone-sucesso { font-size: 60px; color: #4CAF50; margin-bottom: 20px; }
+        .modal-envio h3 { font-size: 28px; color: var(--texto-escuro); margin-bottom: 10px; }
+        .modal-envio .subtitulo { color: var(--texto-cinza); font-size: 16px; margin-bottom: 30px; }
+        .modal-envio .exemplo-msg { background: #f5f5f5; padding: 20px; border-radius: 12px; margin: 30px 0; text-align: left; border-left: 4px solid var(--dourado); font-size: 14px; color: #333; }
+        .modal-envio .botoes-modal { display: flex; gap: 15px; margin-top: 30px; justify-content: center; }
+        .modal-envio .btn-modal { flex: 1; padding: 15px 20px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: var(--transicao); font-size: 14px; max-width: 300px; }
+        .btn-modal-primario { background: var(--dourado); color: #fff; }
+        .btn-modal-primario:hover { background: var(--dourado-escuro); transform: translateY(-2px); }
+
+        /* ================= FOOTER ================= */
+        footer { background: var(--azul-petroleo); color: #fff; text-align: center; padding: 40px 0; border-top: 1px solid rgba(224, 171, 72, 0.2); }
+        
+        @media (max-width: 768px) {
+            .sobre-grid, .agendar-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .top-insta-slider { padding-top: 120px; }
+            .brand-name { font-size: 1.3rem; }
+            .brand-sub { font-size: 0.6rem; letter-spacing: 1.5px; }
+            .seta-galeria { height: 45px; width: 45px; font-size: 20px; }
+            .seta-esq { left: 10px; }
+            .seta-dir { right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-container">
+      <a href="#" class="brand-box">
+            <div class="nav-logo">
+                <img src="logotipo (3).png" alt="Luiza Moura">
+            </div>
+            <div class="brand-text-wrapper" id="brandText">
+                <div class="brand-name">Luiza Moura</div>
+                <div class="brand-sub">Estética Avançada</div>
+            </div>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#servicos">Tratamentos</a></li>
+            <li><a href="#agendar" class="btn-nav">Agendar</a></li>
+        </ul>
+    </div>
+  </nav>
+
+    <header class="top-insta-slider">
+        <div class="container">
+            <h1>Acompanhe nossos <span>Resultados</span></h1>
+            
+          <div class="swiper meu-carrossel-topo">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide" style="cursor: zoom-in;" onclick="abrirImagem(this.querySelector('img').src)">
+                        <img src="IMG_2.jpeg" alt="Trabalho 1">
+                        <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    
+                    <div class="swiper-slide" style="cursor: zoom-in;" onclick="abrirImagem(this.querySelector('img').src)">
+                        <img src="IMG_3.PNG" alt="Trabalho 2">
+                        <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    
+                    <div class="swiper-slide" style="cursor: zoom-in;" onclick="abrirImagem(this.querySelector('img').src)">
+                        <img src="IMG_4.jpeg" alt="Trabalho 3">
+                        <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    
+                    <div class="swiper-slide" style="cursor: zoom-in;" onclick="abrirImagem(this.querySelector('img').src)">
+                        <img src="IMG_5.PNG" alt="Trabalho 4">
+                        <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    
+                    <div class="swiper-slide" style="cursor: zoom-in;" onclick="abrirImagem(this.querySelector('img').src)">
+                        <img src="IMG_6.PNG" alt="Trabalho 5">
+                        <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <a href="https://instagram.com/estetica.luizamoura" target="_blank" class="btn-insta">
+                <i class="fab fa-instagram" style="font-size: 18px;"></i> Siga @estetica.luizamoura
+            </a>
+        </div>
+    </header>
+
+    <section id="servicos" style="background-color: var(--fundo-creme);">
+        <div class="container">
+            <div class="secao-titulo">
+                <h2>Nossos <span>Tratamentos</span></h2>
+                <p>Protocolos exclusivos unindo ciência e tecnologia para revelar a sua melhor versão.</p>
+            </div>
+            
+            <div class="servicos-grid">
+                <a href="tratamento-limpeza.html" class="card-servico">
+                    <div class="icone-wrap"><i class="fas fa-spa"></i></div>
+                    <h3>Limpeza de Pele</h3>
+                    <p>Protocolo profundo para renovação celular, remoção de impurezas e hidratação.</p>
+                    <div class="link-detalhes">Descobrir Mais <i class="fas fa-arrow-right" style="font-size: 12px; margin-left: 5px;"></i></div>
+                </a>
+
+                <a href="tratamento-microagulhamento.html" class="card-servico">
+                    <div class="icone-wrap"><i class="fas fa-magic"></i></div>
+                    <h3>Microagulhamento</h3>
+                    <p>Estimula a produção de colágeno, atenuando marcas, cicatrizes de acne e linhas de expressão.</p>
+                    <div class="link-detalhes">Descobrir Mais <i class="fas fa-arrow-right" style="font-size: 12px; margin-left: 5px;"></i></div>
+                </a>
+
+                <a href="tratamento-manchas.html" class="card-servico">
+                    <div class="icone-wrap"><i class="fas fa-sun"></i></div>
+                    <h3>Tratamento para Manchas</h3>
+                    <p>Protocolos exclusivos para clarear hiperpigmentações e uniformizar o tom da sua pele.</p>
+                    <div class="link-detalhes">Descobrir Mais <i class="fas fa-arrow-right" style="font-size: 12px; margin-left: 5px;"></i></div>
+                </a>
+
+                <a href="tratamento-revitalizacao.html" class="card-servico">
+                    <div class="icone-wrap"><i class="fas fa-gem"></i></div>
+                    <h3>Revitalização Facial</h3>
+                    <p>Devolve o viço, a luminosidade e a hidratação profunda que a sua pele precisa.</p>
+                    <div class="link-detalhes">Descobrir Mais <i class="fas fa-arrow-right" style="font-size: 12px; margin-left: 5px;"></i></div>
+                </a>
+
+                <a href="tratamento-maquiagem.html" class="card-servico">
+                    <div class="icone-wrap"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Maquiagem Profissional</h3>
+                    <p>Realce seus traços e sua beleza natural para arrasar em qualquer evento ou ocasião especial.</p>
+                    <div class="link-detalhes">Descobrir Mais <i class="fas fa-arrow-right" style="font-size: 12px; margin-left: 5px;"></i></div>
+                </a>
+
+                <a href="tratamento-massagem.html" class="card-servico">
+                    <div class="icone-wrap"><i class="fas fa-hands"></i></div>
+                    <h3>Massagem Relaxante</h3>
+                    <p>Manobras suaves que aliviam tensões musculares, estresse e promovem relaxamento total.</p>
+                    <div class="link-detalhes">Descobrir Mais <i class="fas fa-arrow-right" style="font-size: 12px; margin-left: 5px;"></i></div>
+                </a>
+
+                <a href="tratamento-ventosaterapia.html" class="card-servico">
+                    <div class="icone-wrap"><i class="fas fa-leaf"></i></div>
+                    <h3>Ventosaterapia</h3>
+                    <p>Técnica terapêutica que melhora a circulação e promove relaxamento profundo.</p>
+                    <div class="link-detalhes">Descobrir Mais <i class="fas fa-arrow-right" style="font-size: 12px; margin-left: 5px;"></i></div>
+                </a>
+
+                <a href="tratamento-peim.html" class="card-servico">
+                    <div class="icone-wrap"><i class="fas fa-syringe"></i></div>
+                    <h3>PEIM (Varizes)</h3>
+                    <p>Tratamento seguro e eficaz para a secagem de vasinhos, melhorando a estética das pernas.</p>
+                    <div class="link-detalhes">Descobrir Mais <i class="fas fa-arrow-right" style="font-size: 12px; margin-left: 5px;"></i></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <div class="container sobre-grid">
+            <div class="imagem-moldura">
+                <img src="fotopapel.jpeg" alt="Dra. Luiza Moura" class="sobre-img">
+            </div>
+            <div class="sobre-texto">
+    <div class="secao-titulo" style="text-align: left; margin-bottom: 25px;">
+        <h2 style="font-family: 'Playfair Display', serif; color: var(--texto-escuro); font-size: 2.2rem;">
+            Prazer, <span style="color: var(--dourado);">Luiza Moura</span>
+        </h2>
+    </div>
+    
+    <p style="font-size: 1.15rem; color: var(--texto-cinza); margin-bottom: 25px; text-align: justify; line-height: 1.8;">
+        Acredito que a estética vai muito além de procedimentos; é sobre reconexão com a própria autoestima e o cuidado genuíno com a sua melhor versão. Minha trajetória profissional é pautada pelo rigor científico e pela busca incessante pela excelência. 
+    </p>
+    
+    <p style="font-size: 1.15rem; color: var(--texto-cinza); margin-bottom: 25px; text-align: justify; line-height: 1.8;">
+        <strong>Graduada em Estética e Cosmetologia e Pós-graduanda em Estética Avançada</strong>, combino um profundo conhecimento técnico sobre a fisiologia cutânea com as tecnologias mais modernas do mercado. Minha prática é guiada por um olhar atento à harmonia facial e corporal, sempre respeitando a singularidade de cada paciente em um ambiente que preza pelo conforto, privacidade e biossegurança.
+    </p>
+    
+    <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.2rem; color: var(--texto-escuro); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
+        O que nos diferencia:
+    </h3>
+    
+    <ul style="list-style: none;">
+        <li style="margin-bottom: 18px; font-weight: 500; color: var(--texto-escuro);">
+            <i class="fas fa-award" style="color: var(--dourado); margin-right: 12px; width: 20px;"></i> 
+            <strong>Especialista em Procedimentos Injetáveis:</strong> Expertise técnica voltada para resultados harmônicos e naturais.
+        </li>
+        <li style="margin-bottom: 18px; font-weight: 500; color: var(--texto-escuro);">
+            <i class="fas fa-flask" style="color: var(--dourado); margin-right: 12px; width: 20px;"></i> 
+            <strong>Protocolos Exclusivos e Científicos:</strong> Tratamentos personalizados baseados nas necessidades reais da sua pele.
+        </li>
+        <li style="margin-bottom: 18px; font-weight: 500; color: var(--texto-escuro);">
+            <i class="fas fa-gem" style="color: var(--dourado); margin-right: 12px; width: 20px;"></i> 
+            <strong>Ambiente Clínico de Alto Padrão:</strong> Um espaço exclusivo de estética avançada projetado para o seu conforto e bem-estar.
+        </li>
+        <li style="margin-bottom: 18px; font-weight: 500; color: var(--texto-escuro);">
+            <i class="fas fa-user-check" style="color: var(--dourado); margin-right: 12px; width: 20px;"></i> 
+            <strong>Atendimento Humanizado:</strong> Acompanhamento próximo e transparente em todas as etapas da sua jornada estética.
+        </li>
+    </ul>
+</div>
+    </section>
+
+    <section id="depoimentos" class="depoimentos">
+        <div class="container">
+            <div class="secao-titulo">
+                <h2>Experiências <span>Reais</span></h2>
+                <p style="color: #E0E0E0;">A satisfação de quem já confiou em nossos protocolos.</p>
+            </div>
+            <div class="depoimentos-grid">
+                <div class="card-depoimento">
+                    <div class="estrelas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Excelente profissional! O ambiente é impecável e o resultado do meu tratamento superou todas as expectativas."</p>
+                    <h4 style="color: var(--dourado); font-family: 'Montserrat'; font-size: 14px; text-transform: uppercase;">— Cliente Satisfeita</h4>
+                </div>
+                <div class="card-depoimento">
+                    <div class="estrelas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Atendimento humanizado e muito técnico. Explicou cada passo do procedimento e me passou muita segurança."</p>
+                    <h4 style="color: var(--dourado); font-family: 'Montserrat'; font-size: 14px; text-transform: uppercase;">— Cliente Satisfeita</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="agendar" style="background-color: var(--dourado);">
+        <div class="container">
+            <div class="secao-titulo">
+                <h2>Agende sua <span>Avaliação</span></h2>
+                <p>Dê o primeiro passo para realçar sua beleza.</p>
+            </div>
+            <div class="agendar-grid">
+                <form id="formAgendamento">
+                    <input type="text" id="nomeCompleto" class="form-control" placeholder="Seu Nome Completo" required>
+                    <select id="tratamentoInteresse" class="form-control" required>
+                        <option>Qual tratamento lhe interessa?</option>
+                        <option>Limpeza de Pele</option>
+                        <option>Microagulhamento</option>
+                        <option>Tratamento para Manchas</option>
+                        <option>Revitalização Facial</option>
+                        <option>Maquiagem Profissional</option>
+                        <option>Massagem Relaxante</option>
+                        <option>Ventosaterapia</option>
+                        <option>PEIM (Varizes/Microvasos)</option>
+                        <option>Ainda não sei, quero uma avaliação</option>
+                    </select>
+                    <button type="submit" class="btn-submit">Solicitar Agendamento</button>
+                </form>
+                
+                <div class="contato-info">
+                    <div>
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4 style="font-family: 'Montserrat'; font-size: 16px; margin-bottom: 5px;">WhatsApp</h4>
+                            <p style="color: var(--texto-cinza);">(82) 98185-9596</p>
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 style="font-family: 'Montserrat'; font-size: 16px; margin-bottom: 5px;">Localização Exclusiva</h4>
+                            <p style="color: var(--texto-cinza);">Rua José Menezes Gonçalves, Nº 153 </p>
+                            <p style="color: var(--texto-cinza);"></p>Paripiranga-Ba</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="modalEnvio" class="modal-envio">
+        <div class="modal-conteudo">
+            <div class="icone-sucesso">✓</div>
+            <h3>Mensagem Enviada!</h3>
+            <p class="subtitulo">🎉 Já já Luiza Moura entra em contato com você</p>
+            <div class="exemplo-msg" id="exemploMensagem"></div>
+            <div class="botoes-modal">
+                <button class="btn-modal btn-modal-primario" onclick="fecharModal()">Pronto</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalImagem" class="modal-imagem" onclick="fecharModalImagem()">
+        <span class="fechar-imagem" onclick="fecharModalImagem()">&times;</span>
+        
+        <div class="seta-galeria seta-esq" onclick="mudarImagem(-1, event)">&#10094;</div>
+        
+        <img class="modal-imagem-conteudo" id="imagemExpandida" onclick="event.stopPropagation()">
+        
+        <div class="seta-galeria seta-dir" onclick="mudarImagem(1, event)">&#10095;</div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3 style="color: var(--dourado); margin-bottom: 10px; font-size: 24px;">Luiza Moura</h3>
+            <p style="color: #A0A0A0; font-size: 14px;">Estética Avançada © 2026. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // ====== VARIÁVEIS DA GALERIA ======
+        let imagensGaleria = [];
+        let indiceAtual = 0;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                const swiperTopo = new Swiper('.meu-carrossel-topo', {
+                    loop: true, slidesPerView: 2, spaceBetween: 15,
+                    autoplay: { delay: 2000, disableOnInteraction: false }, 
+                    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                    breakpoints: { 768: { slidesPerView: 3, spaceBetween: 25 }, 1024: { slidesPerView: 4, spaceBetween: 30 } }
+                });
+
+                // Coletar as imagens do carrossel para a galeria
+                setTimeout(() => {
+                    const imagensCarrossel = document.querySelectorAll('.meu-carrossel-topo .swiper-slide:not(.swiper-slide-duplicate) img');
+                    let srcUnicas = new Set();
+                    imagensCarrossel.forEach(img => srcUnicas.add(img.src));
+                    imagensGaleria = Array.from(srcUnicas);
+                }, 500);
+
+            } catch(err) { console.log('Carrossel não carregou:', err); }
+
+            const formulario = document.getElementById('formAgendamento');
+            if (formulario) {
+                formulario.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const nome = document.getElementById('nomeCompleto').value.trim();
+                    const tratamento = document.getElementById('tratamentoInteresse').value;
+
+                    if (!nome || tratamento === 'Qual tratamento lhe interessa?') {
+                        alert('⚠️ Por favor, preencha seu nome e escolha um tratamento.'); return;
+                    }
+
+                    const mensagem = `Olá Luiza! 👋\n\nNova solicitação de agendamento:\n\nNome: ${nome}\nTratamento: ${tratamento}\n\nAguardo seu contato.`;
+                    const linkWhatsApp = `https://wa.me/5582981859596?text=${encodeURIComponent(mensagem)}`;
+
+                    document.getElementById('exemploMensagem').innerHTML = `<strong>✅ Mensagem Enviada!</strong><br><br>Já já Luiza Moura entrará em contato com você.<br><br><em>Mensagem enviada:</em><br>${mensagem.replace(/\n/g, '<br>')}`;
+                    document.getElementById('modalEnvio').classList.add('ativo');
+
+                    setTimeout(() => fecharModal(), 5000);
+                    window.open(linkWhatsApp, '_blank');
+                    formulario.reset();
+                });
+            }
+        });
+
+        // ====== FUNÇÕES DA IMAGEM AMPLIADA (GALERIA) ======
+        function abrirImagem(src) {
+            indiceAtual = imagensGaleria.indexOf(src);
+            if (indiceAtual === -1) indiceAtual = 0;
+
+            document.getElementById("modalImagem").style.display = "flex";
+            document.getElementById("imagemExpandida").src = imagensGaleria[indiceAtual];
+        }
+
+        function mudarImagem(passo, event) {
+            if(event) event.stopPropagation(); 
+
+            indiceAtual += passo;
+            if (indiceAtual >= imagensGaleria.length) {
+                indiceAtual = 0;
+            } else if (indiceAtual < 0) {
+                indiceAtual = imagensGaleria.length - 1;
+            }
+            
+            document.getElementById("imagemExpandida").src = imagensGaleria[indiceAtual];
+        }
+
+        function fecharModalImagem() {
+            document.getElementById("modalImagem").style.display = "none";
+        }
+
+        function fecharModal() { document.getElementById('modalEnvio').classList.remove('ativo'); }
+
+        document.addEventListener('click', function(e) {
+            const modalEnvio = document.getElementById('modalEnvio');
+            if (e.target === modalEnvio) fecharModal();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault(); 
+        });
+    </script>
+
+    <script>
+        (function(){
+            const logo = document.querySelector('.nav-logo');
+            const toggle = document.getElementById('logoMoveToggle');
+            const brand = document.getElementById('brandText');
+            if (!logo || !toggle || !brand) return;
+
+            function updateBrandPos(){
+                try{
+                    const rect = logo.getBoundingClientRect();
+                    const left = rect.left + rect.width + 12;
+                    const top = rect.top + (rect.height - brand.offsetHeight)/2;
+                    brand.style.left = left + 'px';
+                    brand.style.top = top + 'px';
+                } catch(e){ console.log('updateBrandPos', e); }
+            }
+
+            function loadPos(){
+                try{
+                    const raw = localStorage.getItem('logoPos');
+                    if (raw){
+                        const p = JSON.parse(raw);
+                        logo.style.position = 'fixed';
+                        logo.style.left = (p.left || 20) + 'px';
+                        logo.style.top = (p.top || 12) + 'px';
+                    } else {
+                        logo.style.position = 'fixed';
+                        logo.style.left = '20px';
+                        logo.style.top = '12px';
+                    }
+                    updateBrandPos();
+                } catch(e){ console.log('loadPos', e); }
+            }
+
+            let dragMode = false; let dragging = false; let offsetX=0; let offsetY=0;
+
+            function setMode(on){
+                dragMode = !!on;
+                toggle.textContent = on ? 'Salvar posição' : 'Mover logo';
+                if(on){
+                    logo.classList.add('draggable');
+                    const rect = logo.getBoundingClientRect();
+                    logo.style.position = 'fixed';
+                    logo.style.left = rect.left + 'px';
+                    logo.style.top = rect.top + 'px';
+                } else {
+                    logo.classList.remove('draggable');
+                }
+                updateBrandPos();
+            }
+
+            toggle.addEventListener('click', function(){
+                if (dragMode) {
+                    const left = parseInt(logo.style.left) || 0;
+                    const top = parseInt(logo.style.top) || 0;
+                    localStorage.setItem('logoPos', JSON.stringify({ left, top }));
+                    setMode(false);
+                } else {
+                    setMode(true);
+                }
+            });
+
+            logo.addEventListener('pointerdown', function(e){
+                if(!dragMode) return;
+                dragging = true;
+                offsetX = e.clientX - (logo.getBoundingClientRect().left);
+                offsetY = e.clientY - (logo.getBoundingClientRect().top);
+                try{ logo.setPointerCapture(e.pointerId); } catch(e){}
+            });
+
+            document.addEventListener('pointermove', function(e){
+                if(!dragging) return;
+                let left = e.clientX - offsetX;
+                let top = e.clientY - offsetY;
+                left = Math.max(0, Math.min(left, window.innerWidth - logo.offsetWidth));
+                top = Math.max(0, Math.min(top, window.innerHeight - logo.offsetHeight));
+                logo.style.left = left + 'px';
+                logo.style.top = top + 'px';
+                updateBrandPos();
+            });
+
+            document.addEventListener('pointerup', function(e){
+                if(!dragging) return;
+                dragging = false;
+                const left = parseInt(logo.style.left) || 0;
+                const top = parseInt(logo.style.top) || 0;
+                localStorage.setItem('logoPos', JSON.stringify({ left, top }));
+            });
+
+            logo.addEventListener('dblclick', function(){
+                localStorage.removeItem('logoPos');
+                logo.style.left = '';
+                logo.style.top = '';
+                logo.style.position = '';
+                brand.style.left = '';
+                brand.style.top = '';
+                setMode(false);
+            });
+
+            window.addEventListener('resize', updateBrandPos);
+
+            loadPos();
+        })();
+    </script>
+</body>
+</html>
