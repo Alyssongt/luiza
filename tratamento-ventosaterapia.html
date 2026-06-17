@@ -26,6 +26,30 @@
             --texto-cinza: #5A5A5A; 
             --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+       .btn-som { 
+    position: absolute; 
+    bottom: 10px; 
+    right: 10px; 
+    z-index: 10;
+    background: rgba(0,0,0,0.5); 
+    color: white; 
+    border: none; 
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+        .btn-som:hover { 
+            background: rgba(224, 171, 72, 0.8); /* Cor dourada ao passar o mouse */
+            border-color: var(--dourado);
+            transform: scale(1.05);
+        }
 
         /* ================= RESET E BASE ================= */
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -63,6 +87,7 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
             border-bottom: 1px solid rgba(224, 171, 72, 0.2); z-index: 1000;
         }
+        
         
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
@@ -269,15 +294,18 @@
             <div class="resultado-item">
                 <div class="resultado-midia">
                    <video 
-    loop 
-    muted 
-    playsinline 
-    preload="metadata" 
-    onclick="this.paused ? this.play() : this.pause()"
-    style="width: 100%; border-radius: 12px; cursor: pointer;">
-    <source src="VIDEOVEN.mp4" type="video/mp4">
-    Seu navegador não suporta vídeos.
-</video>
+                loop 
+                muted 
+                playsinline 
+                preload="metadata" 
+                onclick="this.paused ? this.play() : this.pause()">
+                <source src="VIDEOVEN.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+           <button class="btn-som" onclick="liberarSom(this)">
+    <i class="fas fa-volume-mute"></i>
+</button>
+
                 </div>
                 <div class="resultado-texto">
                     <h3>A Dinâmica da Sucção</h3>
@@ -326,30 +354,23 @@
         </div>
     </footer>
 
-   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const videos = document.querySelectorAll('video');
-        
-        videos.forEach(video => {
-            // Garante que o vídeo esteja mudo
-            video.muted = true;
-            
-            // Tenta rodar automaticamente
-            let playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    // Vídeo começou sozinho
-                }).catch(error => {
-                    // iPhone bloqueou. Mas como o nosso HTML tem o 'onclick', 
-                    // o vídeo ainda vai rodar assim que o cliente tocar nele.
-                    console.log("Autoplay bloqueado pelo iOS, aguardando toque do usuário.");
-                });
+ <script>
+       function liberarSom(btn) {
+            const video = btn.parentElement.querySelector('video');
+            if (video.muted) {
+                video.muted = false;
+                btn.innerHTML = '<i class="fas fa-volume-up"></i> Som Ligado';
+            } else {
+                video.muted = true;
+                btn.innerHTML = '<i class="fas fa-volume-mute"></i> Ativar Som';
             }
-        });
-    });
+        }
 
-    // Impede download do vídeo ou imagens
-    document.addEventListener('contextmenu', e => e.preventDefault());
-</script>
+        // Tenta dar play automático silencioso
+        document.addEventListener("DOMContentLoaded", function() {
+            const video = document.querySelector('video');
+            video.play().catch(e => console.log("Autoplay bloqueado, aguardando clique."));
+        });
+    </script>
 </body>
 </html>
