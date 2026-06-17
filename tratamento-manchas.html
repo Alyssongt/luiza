@@ -35,7 +35,7 @@
             line-height: 1.8;
             background-image: radial-gradient(rgba(224, 171, 72, 0.05) 1px, transparent 1px);
             background-size: 20px 20px; 
-            padding-top: 120px; /* Impede que o menu superior cubra o conteúdo */
+            padding-top: 120px; 
         }
 
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
@@ -155,14 +155,72 @@
         footer h3 { color: var(--dourado); margin-bottom: 10px; font-size: 24px; }
         footer p { color: #A0A0A0; font-size: 14px; }
 
+        /* ================= MOBILE PROFISSIONAL (Menu em 2 Andares e Grade 40/60) ================= */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            body { padding-top: 100px; }
-            .header-tratamento h1 { font-size: 2.5rem; }
-            .protocolo-box { padding: 40px 20px; }
-            .resultado-item, .resultado-item:nth-child(even) { flex-direction: column; text-align: center; padding: 30px 20px; }
-            .resultado-texto ul li { justify-content: center; }
-            .cta-premium h2 { font-size: 2rem; }
+            .container { padding: 0 15px !important; }
+            body { padding-top: 130px; }
+
+            /* Menu em dois andares para não espremer os botões */
+            .nav-container { 
+                flex-direction: column !important; 
+                gap: 10px !important;
+            }
+            .nav-links { 
+                display: flex !important; 
+                width: 100% !important;
+                justify-content: center !important; 
+                gap: 15px !important;
+                margin-top: 5px !important;
+            }
+            .nav-links a { font-size: 0.8rem !important; }
+            .btn-nav { padding: 8px 18px !important; font-size: 0.8rem !important; }
+            .nav-logo { height: 50px; width: 50px; }
+            .brand-name { font-size: 1.3rem; }
+            .brand-sub { font-size: 0.6rem; }
+
+            /* Ajuste de Títulos para caber na tela */
+            .header-tratamento h1 { font-size: 1.8rem !important; margin-bottom: 10px !important; }
+            .header-tratamento p { font-size: 1rem !important; }
+            
+            /* RESULTADOS: Ícone 40% na Esquerda / Texto 60% na Direita */
+            .resultados-lista { gap: 20px !important; }
+            
+            .resultado-item, .resultado-item:nth-child(even) { 
+                display: grid !important;
+                grid-template-columns: 40% 1fr !important; 
+                gap: 15px !important;
+                align-items: center !important;
+                padding: 20px 15px !important;
+                border-radius: 12px !important;
+                text-align: left !important;
+            }
+            
+            /* Ajustes do Ícone (40%) */
+            .resultado-midia { margin: 0 !important; display: flex; justify-content: center; align-items: center; }
+            .resultado-midia i { font-size: 60px !important; }
+
+            /* Ajustes Finos do Texto (60%) */
+            .resultado-texto { padding: 0 !important; }
+            .resultado-texto h3 { font-size: 1rem !important; margin-bottom: 8px !important; line-height: 1.2 !important; }
+            .resultado-texto p { font-size: 0.75rem !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
+            
+            .resultado-texto ul { margin-top: 10px !important; }
+            .resultado-texto ul li { font-size: 0.75rem !important; align-items: flex-start !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
+            .resultado-texto ul li i { font-size: 10px !important; margin-top: 3px; }
+
+            /* Outros Ajustes da Página */
+            .protocolo-box { padding: 30px 20px !important; }
+            .protocolo-box h2 { font-size: 1.5rem !important; margin-bottom: 15px !important; }
+            .protocolo-box .intro-proto { font-size: 0.95rem !important; margin-bottom: 25px !important; }
+            .passo-item { font-size: 0.85rem !important; padding: 12px 15px !important; }
+            
+            .info-rodape { flex-direction: column !important; gap: 10px !important; text-align: left !important;}
+            .info-rodape p { font-size: 0.85rem !important; }
+
+            .cta-premium { padding: 40px 20px !important; }
+            .cta-premium h2 { font-size: 1.6rem !important; margin-bottom: 15px !important; }
+            .cta-premium p { font-size: 0.9rem !important; margin-bottom: 20px !important; }
+            .btn-agendar { padding: 15px 25px !important; font-size: 0.9rem !important; }
         }
     </style>
 </head>

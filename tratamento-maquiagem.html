@@ -141,13 +141,73 @@
         footer h3 { color: var(--dourado); margin-bottom: 10px; font-size: 24px; }
         footer p { color: #A0A0A0; font-size: 14px; }
 
+        /* ================= MOBILE PROFISSIONAL (Menu em 2 Andares e Grade 40/60) ================= */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            body { padding-top: 100px; }
-            .header-tratamento h1 { font-size: 2.5rem; }
-            .protocolo-box { padding: 40px 20px; }
-            .resultado-item, .resultado-item:nth-child(even) { flex-direction: column; text-align: center; padding: 30px 20px; }
-            .cta-premium h2 { font-size: 2rem; }
+            .container { padding: 0 15px !important; }
+            body { padding-top: 130px; }
+
+            /* Menu em dois andares para não espremer os botões */
+            .nav-container { 
+                flex-direction: column !important; 
+                gap: 10px !important;
+            }
+            .nav-links { 
+                display: flex !important; 
+                width: 100% !important;
+                justify-content: center !important; 
+                gap: 15px !important;
+                margin-top: 5px !important;
+            }
+            .nav-links a { font-size: 0.8rem !important; }
+            .btn-nav { padding: 8px 18px !important; font-size: 0.8rem !important; }
+            .nav-logo { height: 50px; width: 50px; }
+            .brand-name { font-size: 1.3rem; }
+            .brand-sub { font-size: 0.6rem; }
+
+            /* Ajuste de Títulos para caber na tela */
+            .header-tratamento h1 { font-size: 1.8rem !important; margin-bottom: 10px !important; }
+            .header-tratamento p { font-size: 1rem !important; }
+            
+            /* RESULTADOS: Imagem 40% na Esquerda / Texto 60% na Direita */
+            .resultados-lista { gap: 20px !important; }
+            
+            .resultado-item, .resultado-item:nth-child(even) { 
+                display: grid !important;
+                grid-template-columns: 40% 1fr !important; 
+                gap: 15px !important;
+                align-items: center !important;
+                padding: 15px !important;
+                border-radius: 12px !important;
+                text-align: left !important;
+            }
+            
+            /* Ajustes da Imagem (40%) */
+            .resultado-midia { margin: 0 !important; }
+            .resultado-midia img { 
+                width: 100% !important; 
+                height: 100% !important; 
+                object-fit: cover !important; 
+                border-radius: 8px !important; 
+            }
+
+            /* Ajustes Finos do Texto (60%) */
+            .resultado-texto { padding: 0 !important; }
+            .resultado-texto h3 { font-size: 1rem !important; margin-bottom: 8px !important; line-height: 1.2 !important; }
+            .resultado-texto p { font-size: 0.75rem !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
+
+            /* Outros Ajustes da Página */
+            .protocolo-box { padding: 30px 20px !important; }
+            .protocolo-box h2 { font-size: 1.5rem !important; margin-bottom: 15px !important; }
+            .protocolo-box .intro-proto { font-size: 0.95rem !important; margin-bottom: 25px !important; }
+            .passo-item { font-size: 0.85rem !important; padding: 12px 15px !important; }
+            
+            .info-rodape { flex-direction: column !important; gap: 10px !important; text-align: left !important;}
+            .info-rodape p { font-size: 0.85rem !important; }
+
+            .cta-premium { padding: 40px 20px !important; }
+            .cta-premium h2 { font-size: 1.6rem !important; margin-bottom: 15px !important; }
+            .cta-premium p { font-size: 0.9rem !important; margin-bottom: 20px !important; }
+            .btn-agendar { padding: 15px 25px !important; font-size: 0.9rem !important; }
         }
     </style>
 </head>
@@ -258,7 +318,8 @@
                 <p><i class="fas fa-camera"></i> <strong>Indicação:</strong> Casamentos, Formaturas, Ensaios e Eventos Sociais.</p>
             </div>
         </div>
-<div class="cta-premium">
+        
+        <div class="cta-premium">
             <h2>Sinta-se deslumbrante no seu próximo evento</h2>
             <p style="color: #ccc; margin-bottom: 30px; font-size: 1.1rem;">Deixe a produção por nossa conta e garanta uma maquiagem impecável que dura a festa inteira.</p>
             <a href="https://wa.me/5582981859596?text=Olá%20Luiza!%20Gostaria%20de%20agendar%20minha%20Maquiagem%20Profissional." target="_blank" class="btn-agendar">Reservar Meu Horário</a>

@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Microagulhamento | Luiza Moura Estética</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -158,6 +158,33 @@
             .resultado-item, .resultado-item:nth-child(even) { flex-direction: column; text-align: center; padding: 30px 20px; }
             .resultado-texto ul li { justify-content: center; }
             .cta-premium h2 { font-size: 2rem; }
+        }
+        /* ================= MOBILE PROFISSIONAL (Menu e Textos) ================= */
+        @media (max-width: 768px) {
+            .container { padding: 0 20px !important; }
+
+            /* Menu em dois andares para não espremer os botões */
+            .nav-container { 
+                flex-direction: column !important; 
+                gap: 10px !important;
+            }
+            .nav-links { 
+                display: flex !important; 
+                width: 100% !important;
+                justify-content: center !important; 
+                gap: 20px !important;
+                margin-top: 5px !important;
+            }
+            .nav-links a { font-size: 0.8rem !important; }
+            .btn-nav { padding: 8px 18px !important; font-size: 0.8rem !important; }
+            .nav-logo { height: 50px; width: 50px; }
+            .brand-name { font-size: 1.3rem; }
+            .brand-sub { font-size: 0.6rem; }
+            
+            /* Ajustes para a página do tratamento ficar com leitura agradável */
+            section { padding: 60px 0 !important; }
+            h2 { font-size: 1.8rem !important; }
+            p { font-size: 1rem !important; line-height: 1.6 !important; text-align: justify; }
         }
     </style>
 </head>

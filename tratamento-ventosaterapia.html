@@ -110,19 +110,15 @@
         
         .resultado-midia { flex: 1; text-align: center; position: relative; }
         .resultado-midia img, .resultado-midia video { width: 100%; max-height: 480px; object-fit: cover; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); }
-        
         .resultado-midia i { font-size: 100px; color: rgba(255,255,255,0.9); } 
         .resultado-item:nth-child(even) .resultado-midia i { color: var(--dourado); }
 
         .resultado-texto { flex: 1; padding: 0 15px; }
-        
         .resultado-texto h3 { font-size: 1.8rem; margin-bottom: 18px; color: #fff; }
         .resultado-texto p { color: #fff; font-size: 1.1rem; margin-bottom: 14px; line-height: 1.8; font-weight: 500; }
-        .resultado-texto strong { color: #fff; }
         
         .resultado-item:nth-child(even) .resultado-texto h3 { color: var(--texto-escuro); }
         .resultado-item:nth-child(even) .resultado-texto p { color: var(--texto-cinza); }
-        .resultado-item:nth-child(even) .resultado-texto strong { color: var(--texto-escuro); }
 
         .resultado-texto ul { list-style: none; margin-top: 20px; color: #fff; }
         .resultado-item:nth-child(even) .resultado-texto ul { color: var(--texto-cinza); }
@@ -133,16 +129,11 @@
         /* ====== GRID PROTOCOLO ====== */
         .protocolo-box { background: #fff; padding: 60px 50px; border-radius: 20px; box-shadow: 0 6px 30px rgba(0,0,0,0.05); margin-bottom: 60px; text-align: center; }
         .protocolo-box h2 { font-size: 2.4rem; color: var(--dourado); margin-bottom: 20px; }
-        .protocolo-box .intro-proto { font-size: 1.15rem; color: var(--texto-cinza); max-width: 800px; margin: 0 auto 35px auto; }
         
         .grid-passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 30px 0; text-align: left; }
         .passo-item { background: var(--fundo-creme); padding: 15px 20px; border-radius: 12px; font-size: 1.05rem; font-weight: 600; color: var(--texto-escuro); display: flex; align-items: center; gap: 12px; border: 1px solid rgba(0,0,0,0.03); transition: var(--transicao); }
         .passo-item:hover { transform: translateY(-3px); border-color: var(--dourado); }
         .passo-item span { background: var(--dourado); color: #fff; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem; flex-shrink: 0; }
-
-        .info-rodape { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding-top: 30px; border-top: 1px solid #f0f0f0; margin-top: 40px; }
-        .info-rodape p { font-size: 1.1rem; color: var(--texto-escuro); font-weight: 500; }
-        .info-rodape i { color: var(--dourado); margin-right: 8px; }
 
         /* ================= CTA E RODAPÉ ================= */
         .cta-premium { background: var(--preto-estetico); color: #fff; text-align: center; padding: 80px 20px; border-radius: 20px; margin-bottom: 60px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
@@ -154,14 +145,73 @@
         footer h3 { color: var(--dourado); margin-bottom: 10px; font-size: 24px; }
         footer p { color: #A0A0A0; font-size: 14px; }
 
+        /* ================= MOBILE PROFISSIONAL (Menu em 2 Andares e Grade 40/60) ================= */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            body { padding-top: 100px; }
-            .header-tratamento h1 { font-size: 2.5rem; }
-            .protocolo-box { padding: 40px 20px; }
-            .resultado-item, .resultado-item:nth-child(even) { flex-direction: column; text-align: center; padding: 30px 20px; }
-            .cta-premium h2 { font-size: 2rem; }
-            .resultado-texto ul li { justify-content: center; }
+            .container { padding: 0 15px !important; }
+            body { padding-top: 130px; }
+
+            /* Menu em dois andares para não espremer os botões */
+            .nav-container { 
+                flex-direction: column !important; 
+                gap: 10px !important;
+            }
+            .nav-links { 
+                display: flex !important; 
+                width: 100% !important;
+                justify-content: center !important; 
+                gap: 15px !important;
+                margin-top: 5px !important;
+            }
+            .nav-links a { font-size: 0.8rem !important; }
+            .btn-nav { padding: 8px 18px !important; font-size: 0.8rem !important; }
+            .nav-logo { height: 50px; width: 50px; }
+            .brand-name { font-size: 1.3rem; }
+            .brand-sub { font-size: 0.6rem; }
+
+            /* Ajuste de Títulos para caber na tela */
+            .header-tratamento h1 { font-size: 1.8rem !important; margin-bottom: 10px !important; }
+            .header-tratamento p { font-size: 1rem !important; }
+            
+            /* RESULTADOS: Mídia 40% na Esquerda / Texto 60% na Direita */
+            .resultados-lista { gap: 20px !important; }
+            
+            .resultado-item, .resultado-item:nth-child(even) { 
+                display: grid !important;
+                grid-template-columns: 40% 1fr !important; 
+                gap: 15px !important;
+                align-items: center !important;
+                padding: 15px !important;
+                border-radius: 12px !important;
+                text-align: left !important;
+            }
+            
+            /* Ajustes da Imagem, Vídeo ou Ícone (40%) */
+            .resultado-midia { margin: 0 !important; display: flex; justify-content: center; align-items: center; }
+            .resultado-midia img, .resultado-midia video { 
+                width: 100% !important; 
+                height: 100% !important; 
+                object-fit: cover !important; 
+                border-radius: 8px !important; 
+            }
+            .resultado-midia i { font-size: 60px !important; }
+
+            /* Ajustes Finos do Texto (60%) */
+            .resultado-texto { padding: 0 !important; }
+            .resultado-texto h3 { font-size: 1rem !important; margin-bottom: 8px !important; line-height: 1.2 !important; }
+            .resultado-texto p { font-size: 0.75rem !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
+            
+            .resultado-texto ul { margin-top: 10px !important; }
+            .resultado-texto ul li { font-size: 0.75rem !important; align-items: flex-start !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
+            .resultado-texto ul li i { font-size: 10px !important; margin-top: 3px; }
+
+            /* Outros Ajustes da Página */
+            .protocolo-box { padding: 30px 20px !important; }
+            .protocolo-box h2 { font-size: 1.5rem !important; margin-bottom: 15px !important; }
+            .passo-item { font-size: 0.85rem !important; padding: 12px 15px !important; }
+
+            .cta-premium { padding: 40px 20px !important; }
+            .cta-premium h2 { font-size: 1.6rem !important; margin-bottom: 15px !important; }
+            .btn-agendar { padding: 15px 25px !important; font-size: 0.9rem !important; }
         }
     </style>
 </head>
@@ -185,6 +235,7 @@
   </nav>
 
     <div class="container">
+        
         <div class="topo-voltar">
             <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar para o Início</a>
         </div>
