@@ -268,9 +268,16 @@
 
             <div class="resultado-item">
                 <div class="resultado-midia">
-                    <video autoplay muted loop playsinline controlsList="nodownload">
-                        <source src="VIDEOVEN.mp4" type="video/mp4">
-                    </video>
+                   <video 
+    loop 
+    muted 
+    playsinline 
+    preload="metadata" 
+    onclick="this.paused ? this.play() : this.pause()"
+    style="width: 100%; border-radius: 12px; cursor: pointer;">
+    <source src="VIDEOVEN.mp4" type="video/mp4">
+    Seu navegador não suporta vídeos.
+</video>
                 </div>
                 <div class="resultado-texto">
                     <h3>A Dinâmica da Sucção</h3>
@@ -320,38 +327,29 @@
     </footer>
 
    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const videos = document.querySelectorAll('video');
+    document.addEventListener("DOMContentLoaded", function() {
+        const videos = document.querySelectorAll('video');
+        
+        videos.forEach(video => {
+            // Garante que o vídeo esteja mudo
+            video.muted = true;
             
-            // Força as regras do iPhone (iOS) para liberar o Autoplay
-            videos.forEach(video => {
-                video.muted = true; // Tem que ser mudo
-                video.setAttribute('playsinline', ''); // Obrigatório no iPhone
-                video.setAttribute('webkit-playsinline', ''); // Para iPhones mais antigos
-            });
-
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
-
-            const videoObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Tenta dar play silenciosamente
-                        let playPromise = entry.target.play();
-                        if (playPromise !== undefined) {
-                            playPromise.catch(error => {
-                                console.log("O iPhone bloqueou o autoplay momentaneamente.", error);
-                            });
-                        }
-                    } else {
-                        entry.target.pause();
-                    }
+            // Tenta rodar automaticamente
+            let playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Vídeo começou sozinho
+                }).catch(error => {
+                    // iPhone bloqueou. Mas como o nosso HTML tem o 'onclick', 
+                    // o vídeo ainda vai rodar assim que o cliente tocar nele.
+                    console.log("Autoplay bloqueado pelo iOS, aguardando toque do usuário.");
                 });
-            }, observerOptions);
-
-            videos.forEach(video => { videoObserver.observe(video); });
+            }
         });
+    });
 
-        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-    </script>
+    // Impede download do vídeo ou imagens
+    document.addEventListener('contextmenu', e => e.preventDefault());
+</script>
 </body>
 </html>
