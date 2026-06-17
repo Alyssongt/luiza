@@ -321,6 +321,38 @@
             .top-insta-slider .swiper { padding: 10px; }
             .depoimentos-grid { grid-template-columns: 1fr; }
         }
+        /* ================= O QUE FALTAVA: FORÇAR LADO A LADO NO CELULAR ================= */
+        @media (max-width: 768px) {
+            /* Força Sobre, Agendar e Depoimentos a ficarem em 2 colunas */
+            .sobre-grid, .agendar-grid, .depoimentos-grid { 
+                grid-template-columns: 1fr 1fr !important; 
+                gap: 15px !important; 
+                align-items: start;
+            }
+            
+            /* Força os cards de Tratamentos a ficarem em 2 colunas */
+            .servicos-grid { 
+                grid-template-columns: 1fr 1fr !important; 
+                gap: 15px !important; 
+            }
+
+            /* Diminui um pouco os textos para que caibam nas duas colunas sem espremer */
+            .sobre-texto h2 { font-size: 1.4rem !important; margin-bottom: 10px; }
+            .sobre-texto p { font-size: 0.85rem !important; line-height: 1.4 !important; }
+            .sobre-texto h3 { font-size: 1rem !important; }
+            .sobre-texto ul li { font-size: 0.8rem !important; gap: 8px !important; }
+            .sobre-texto ul li i { font-size: 14px !important; }
+            
+            .card-servico { padding: 15px !important; }
+            .icone-wrap { width: 45px !important; height: 45px !important; font-size: 20px !important; margin-bottom: 10px !important; }
+            .card-servico h3 { font-size: 1rem !important; margin-bottom: 5px !important; }
+            .card-servico p { font-size: 0.8rem !important; margin-bottom: 10px !important; }
+            .link-detalhes { font-size: 10px !important; }
+
+            .form-control, .btn-submit { padding: 10px !important; font-size: 12px !important; margin-bottom: 10px !important; }
+            .contato-info { padding: 15px !important; }
+            .contato-info div { font-size: 0.8rem !important; flex-direction: column !important; gap: 5px !important; }
+        }
     </style>
 </head>
 <body>
