@@ -305,15 +305,32 @@
             .container { padding: 0 20px !important; }
             .meu-carrossel-topo { display: block !important; }
 
-            /* NAVEGAÇÃO LIMPA E MINIMALISTA */
-            .nav-links { display: none; }
+            /* ================= NAVEGAÇÃO AJUSTADA COM OS BOTÕES ================= */
+            .nav-container { 
+                flex-direction: column !important; /* Coloca a logo em cima e os botões embaixo para não espremer */
+                gap: 10px !important;
+            }
+            .nav-links { 
+                display: flex !important; /* Faz os botões voltarem a aparecer! */
+                width: 100% !important;
+                justify-content: center !important; 
+                gap: 20px !important;
+                margin-top: 5px !important;
+            }
+            .nav-links a { 
+                font-size: 0.8rem !important; /* Tamanho ótimo para leitura no celular */
+            }
+            .btn-nav { 
+                padding: 8px 18px !important; /* Deixa o botão de agendar mais delicado na tela pequena */
+                font-size: 0.8rem !important;
+            }
             .nav-logo { height: 50px; width: 50px; }
             .brand-name { font-size: 1.3rem; }
             .brand-sub { font-size: 0.6rem; }
 
-            /* TRATAMENTOS: Formato "Lista" (Ícone na esquerda, texto na direita) - Fica lado a lado e super elegante! */
+            /* TRATAMENTOS: Formato "Lista" (Ícone na esquerda, texto na direita) */
             .servicos-grid { 
-                grid-template-columns: 1fr !important; /* Uma linha por tratamento */
+                grid-template-columns: 1fr !important; 
                 gap: 15px !important; 
             }
             .card-servico { 
@@ -324,7 +341,7 @@
                 padding: 20px 15px !important;
             }
             .icone-wrap { 
-                flex-shrink: 0; /* Impede o ícone de amassar */
+                flex-shrink: 0; 
                 margin: 0 15px 0 0 !important; 
                 width: 55px !important; 
                 height: 55px !important; 
@@ -333,13 +350,33 @@
             .card-servico div { display: flex; flex-direction: column; }
             .card-servico h3 { font-size: 1.1rem !important; margin-bottom: 5px !important; }
             .card-servico p { font-size: 0.85rem !important; margin-bottom: 0 !important; }
-            .link-detalhes { display: none !important; } /* Escondido para manter o visual limpo no celular */
+            .link-detalhes { display: none !important; }
 
-            /* SOBRE, DEPOIMENTOS E AGENDAR: O empilhamento com design de aplicativo */
+            /* SOBRE, DEPOIMENTOS E AGENDAR */
             .sobre-grid, .agendar-grid, .depoimentos-grid { 
                 grid-template-columns: 1fr !important; 
                 gap: 40px !important; 
             }
+            
+            .imagem-moldura { max-width: 280px; margin: 0 auto; }
+            
+            .secao-titulo { margin-bottom: 40px; }
+            .secao-titulo h2 { font-size: 2rem !important; }
+            .secao-titulo p { font-size: 1rem !important; }
+            
+            .sobre-texto h2 { font-size: 1.8rem !important; text-align: center; }
+            .sobre-texto p { font-size: 1rem !important; line-height: 1.6 !important; text-align: justify; }
+            .sobre-texto ul li { font-size: 0.95rem !important; }
+
+            .form-control, .btn-submit { padding: 15px !important; font-size: 14px !important; }
+            .contato-info { padding: 25px !important; text-align: center; }
+            .contato-info div { flex-direction: column; align-items: center; gap: 5px; }
+            .contato-info i { margin-bottom: 10px; }
+            
+            /* Ajuste do topo para o título não ficar escondido pelo menu de 2 andares */
+            .top-insta-slider { padding-top: 160px; padding-bottom: 40px; }
+            .top-insta-slider h1 { font-size: 1.8rem; margin-bottom: 25px; }
+        }
             
             /* Ajuste da foto no Sobre para parecer capa de revista */
             .imagem-moldura { max-width: 280px; margin: 0 auto; }
@@ -361,7 +398,7 @@
             
             .top-insta-slider { padding-top: 110px; padding-bottom: 40px; }
             .top-insta-slider h1 { font-size: 1.8rem; margin-bottom: 25px; }
-        }
+        
             /* Diminui um pouco os textos para que caibam nas duas colunas sem espremer */
             .sobre-texto h2 { font-size: 1.4rem !important; margin-bottom: 10px; }
             .sobre-texto p { font-size: 0.85rem !important; line-height: 1.4 !important; }
