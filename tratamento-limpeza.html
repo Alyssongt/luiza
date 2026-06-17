@@ -210,7 +210,7 @@
 <body>
 
     <!-- MENU SUPERIOR FIXA -->
-    <nav>
+    <nav aria-label="Navegação principal">
         <div class="nav-container">
             <a href="index.html" class="brand-box">
                 <div class="nav-logo">
@@ -330,7 +330,7 @@
 
         <div class="cta-premium">
             <h2>Sua pele merece esse cuidado</h2>
-            <a href="https://wa.me/5582981859596?text=Olá,%20gostaria%20de%20agendar%20uma%20Limpeza%20de%20Pele!" target="_blank" class="btn-agendar">Agendar Limpeza de Pele</a>
+            <a href="https://wa.me/5582981859596?text=Olá,%20gostaria%20de%20agendar%20uma%20Limpeza%20de%20Pele!" target="_blank" rel="noopener noreferrer" class="btn-agendar">Agendar Limpeza de Pele</a>
         </div>
     </div>
 
@@ -342,8 +342,7 @@
     </footer>
 
     <!-- SCRIPT DE SOM AUTOMÁTICO INTELIGENTE -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
+</script>
             const videos = document.querySelectorAll('video');
             
             // Força as regras do iPhone (iOS) para liberar o Autoplay
@@ -375,7 +374,6 @@
         });
 
         document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-    </script>
     </script>
 </body>
 </html>
