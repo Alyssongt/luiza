@@ -140,15 +140,70 @@
         footer h3 { color: var(--dourado); margin-bottom: 10px; font-size: 24px; }
         footer p { color: #A0A0A0; font-size: 14px; }
         
-        @media (max-width: 768px) { 
-            .nav-links { display: none; }
-            body { padding-top: 100px; }
-            .resultado-item, .resultado-item:nth-child(even) { flex-direction: column; text-align: center; }
-            .resultado-texto { padding: 0; margin-top: 20px; }
-            .header-tratamento h1 { font-size: 2.4rem; }
-            .conteudo { padding: 35px 20px; }
-            .detalhes-extras { flex-direction: column; gap: 12px; }
-            .cta-premium h2 { font-size: 2rem; }
+        /* ================= MOBILE PROFISSIONAL (Menu em 2 Andares e Grade 40/60) ================= */
+        @media (max-width: 768px) {
+            .container { padding: 0 15px !important; }
+            body { padding-top: 130px; } /* Ajuste pelo menu ficar maior */
+
+            /* Menu em dois andares para não espremer os botões */
+            .nav-container { 
+                flex-direction: column !important; 
+                gap: 10px !important;
+            }
+            .nav-links { 
+                display: flex !important; 
+                width: 100% !important;
+                justify-content: center !important; 
+                gap: 15px !important;
+                margin-top: 5px !important;
+            }
+            .nav-links a { font-size: 0.8rem !important; }
+            .btn-nav { padding: 8px 18px !important; font-size: 0.8rem !important; }
+            .nav-logo { height: 50px; width: 50px; }
+            .brand-name { font-size: 1.3rem; }
+            .brand-sub { font-size: 0.6rem; }
+
+            /* Ajuste de Títulos para caber na tela */
+            .header-tratamento h1 { font-size: 1.8rem !important; }
+            .header-tratamento p { font-size: 1rem !important; }
+            
+            /* RESULTADOS: Imagem 40% na Esquerda / Texto 60% na Direita */
+            .resultados-lista { gap: 20px !important; }
+            
+            /* Esta regra força tanto os blocos brancos quanto os dourados a ficarem Imagem -> Texto */
+            .resultado-item, .resultado-item:nth-child(even) { 
+                display: grid !important;
+                grid-template-columns: 40% 1fr !important; 
+                gap: 15px !important;
+                align-items: center !important;
+                padding: 15px !important;
+                border-radius: 12px !important;
+                text-align: left !important;
+            }
+            
+            /* Ajustes da Imagem (40%) */
+            .resultado-midia { margin: 0 !important; }
+            .resultado-midia img, .resultado-midia video { 
+                width: 100% !important; 
+                height: 100% !important; 
+                object-fit: cover !important; 
+                border-radius: 8px !important; 
+            }
+
+            /* Ajustes Finos do Texto (60%) */
+            .resultado-texto { padding: 0 !important; }
+            .resultado-texto h3 { font-size: 1rem !important; margin-bottom: 8px !important; line-height: 1.2 !important; }
+            .resultado-texto p { font-size: 0.75rem !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
+
+            /* Outros Ajustes da Página */
+            .conteudo { padding: 30px 20px !important; }
+            .conteudo h2 { font-size: 1.5rem !important; margin-bottom: 15px !important; }
+            .conteudo .intro-protocolo { font-size: 0.95rem !important; margin-bottom: 25px !important; }
+            .etapa-card { font-size: 0.85rem !important; padding: 12px 15px !important; }
+            
+            .cta-premium { padding: 40px 20px !important; }
+            .cta-premium h2 { font-size: 1.6rem !important; margin-bottom: 20px !important; }
+            .btn-agendar { padding: 15px 30px !important; font-size: 1rem !important; }
         }
     </style>
 </head>
