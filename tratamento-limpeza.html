@@ -345,36 +345,37 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const videos = document.querySelectorAll('video');
+            
+            // Força as regras do iPhone (iOS) para liberar o Autoplay
+            videos.forEach(video => {
+                video.muted = true; // Tem que ser mudo
+                video.setAttribute('playsinline', ''); // Obrigatório no iPhone
+                video.setAttribute('webkit-playsinline', ''); // Para iPhones mais antigos
+            });
 
-            const observerOptions = {
-                root: null,
-                rootMargin: '-20% 0px -20% 0px',
-                threshold: 0.5 
-            };
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
 
             const videoObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    const video = entry.target;
-
                     if (entry.isIntersecting) {
-                        video.play().then(() => {
-                            video.muted = false;
-                        }).catch(e => console.log("Bloqueio de som pelo navegador", e));
+                        // Tenta dar play silenciosamente
+                        let playPromise = entry.target.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(error => {
+                                console.log("O iPhone bloqueou o autoplay momentaneamente.", error);
+                            });
+                        }
                     } else {
-                        video.pause();
-                        video.muted = true;
+                        entry.target.pause();
                     }
                 });
             }, observerOptions);
 
-            videos.forEach(video => {
-                videoObserver.observe(video);
-            });
+            videos.forEach(video => { videoObserver.observe(video); });
         });
 
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault(); 
-        });
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    </script>
     </script>
 </body>
 </html>
