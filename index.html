@@ -299,83 +299,68 @@
         footer { background: var(--azul-petroleo); color: #fff; text-align: center; padding: 40px 0; border-top: 1px solid rgba(224, 171, 72, 0.2); }
         
         /* ================= MEDIA QUERIES (RESPONSIVO CELULAR) ================= */
-        /* ================= AJUSTE DE RESPONSIVIDADE: MAIS LARGO, 3 COLUNAS E CARROSSEL ISOLADO ================= */
+        /* ================= O PADRÃO OURO PROFISSIONAL PARA CELULARES ================= */
         @media (max-width: 768px) {
-            /* Deixa o site mais largo, aproveitando as laterais do telemóvel */
-            .container { 
-                padding: 0 8px !important; 
-                max-width: 100% !important;
-            }
+            /* Restaura o respiro das bordas da tela */
+            .container { padding: 0 20px !important; }
+            .meu-carrossel-topo { display: block !important; }
 
-            /* Garante que o Carrossel do topo funcione normalmente (sem interferência das colunas) */
-            .meu-carrossel-topo {
-                display: block !important;
-            }
-            .meu-carrossel-topo .swiper-wrapper {
-                display: flex !important;
-            }
-            .meu-carrossel-topo .swiper-slide {
-                width: 100% !important;
-            }
+            /* NAVEGAÇÃO LIMPA E MINIMALISTA */
+            .nav-links { display: none; }
+            .nav-logo { height: 50px; width: 50px; }
+            .brand-name { font-size: 1.3rem; }
+            .brand-sub { font-size: 0.6rem; }
 
-            /* ÁREA DE TRATAMENTOS: Força exatamente 3 colunas (uma ao lado da outra) */
-            /* Isto resolve o erro da Limpeza de Pele, alinhando-a com os outros dois seguintes */
+            /* TRATAMENTOS: Formato "Lista" (Ícone na esquerda, texto na direita) - Fica lado a lado e super elegante! */
             .servicos-grid { 
-                grid-template-columns: repeat(3, 1fr) !important; 
-                gap: 8px !important; 
+                grid-template-columns: 1fr !important; /* Uma linha por tratamento */
+                gap: 15px !important; 
             }
-
-            /* Mantém a Foto e o Texto da Luiza um ao lado do outro */
-            .sobre-grid { 
-                grid-template-columns: 1fr 1fr !important; 
-                gap: 15px !important;
-                align-items: center !important;
-            }
-
-            /* Mantém o Formulário e os Contactos um ao lado do outro */
-            .agendar-grid { 
-                grid-template-columns: 1fr 1fr !important; 
-                gap: 15px !important;
-            }
-
-            /* Redução milimétrica dos textos dos 3 cards para que caibam perfeitamente lado a lado */
             .card-servico { 
-                padding: 12px 6px !important; 
+                display: flex !important; 
+                flex-direction: row !important; 
+                align-items: center !important; 
+                text-align: left !important;
+                padding: 20px 15px !important;
             }
             .icone-wrap { 
-                width: 35px !important; 
-                height: 35px !important; 
-                font-size: 16px !important; 
-                margin: 0 auto 8px !important; 
+                flex-shrink: 0; /* Impede o ícone de amassar */
+                margin: 0 15px 0 0 !important; 
+                width: 55px !important; 
+                height: 55px !important; 
+                font-size: 22px !important; 
             }
-            .card-servico h3 { 
-                font-size: 0.8rem !important; 
-                margin-bottom: 4px !important; 
-            }
-            .card-servico p { 
-                font-size: 0.65rem !important; 
-                line-height: 1.3 !important; 
-                margin-bottom: 8px !important; 
-            }
-            .link-detalhes { 
-                font-size: 8px !important; 
-            }
+            .card-servico div { display: flex; flex-direction: column; }
+            .card-servico h3 { font-size: 1.1rem !important; margin-bottom: 5px !important; }
+            .card-servico p { font-size: 0.85rem !important; margin-bottom: 0 !important; }
+            .link-detalhes { display: none !important; } /* Escondido para manter o visual limpo no celular */
 
-            /* Ajustes do bloco Sobre */
-            .sobre-texto h2 { font-size: 1.3rem !important; }
-            .sobre-texto p { font-size: 0.8rem !important; line-height: 1.4 !important; }
-            .sobre-texto h3 { font-size: 0.9rem !important; }
-            .sobre-texto ul li { font-size: 0.75rem !important; gap: 5px !important; }
+            /* SOBRE, DEPOIMENTOS E AGENDAR: O empilhamento com design de aplicativo */
+            .sobre-grid, .agendar-grid, .depoimentos-grid { 
+                grid-template-columns: 1fr !important; 
+                gap: 40px !important; 
+            }
+            
+            /* Ajuste da foto no Sobre para parecer capa de revista */
+            .imagem-moldura { max-width: 280px; margin: 0 auto; }
+            
+            /* Textos elegantes e com leitura perfeita */
+            .secao-titulo { margin-bottom: 40px; }
+            .secao-titulo h2 { font-size: 2rem !important; }
+            .secao-titulo p { font-size: 1rem !important; }
+            
+            .sobre-texto h2 { font-size: 1.8rem !important; text-align: center; }
+            .sobre-texto p { font-size: 1rem !important; line-height: 1.6 !important; text-align: justify; }
+            .sobre-texto ul li { font-size: 0.95rem !important; }
 
-            /* Ajustes do bloco Agendar */
-            .form-control, .btn-submit { padding: 10px !important; font-size: 12px !important; margin-bottom: 10px !important; }
-            .contato-info { padding: 15px !important; }
-            .contato-info div { font-size: 0.75rem !important; flex-direction: column !important; gap: 3px !important; }
+            /* Formulários e contatos largos e amigáveis para o toque do dedo */
+            .form-control, .btn-submit { padding: 15px !important; font-size: 14px !important; }
+            .contato-info { padding: 25px !important; text-align: center; }
+            .contato-info div { flex-direction: column; align-items: center; gap: 5px; }
+            .contato-info i { margin-bottom: 10px; }
             
             .top-insta-slider { padding-top: 110px; padding-bottom: 40px; }
             .top-insta-slider h1 { font-size: 1.8rem; margin-bottom: 25px; }
-            .top-insta-slider .btn-insta { padding: 10px 25px; font-size: 14px; margin-top: 20px; }
-            .seta-galeria { height: 40px; width: 40px; font-size: 18px; }
         }
             /* Diminui um pouco os textos para que caibam nas duas colunas sem espremer */
             .sobre-texto h2 { font-size: 1.4rem !important; margin-bottom: 10px; }
