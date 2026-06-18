@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <!-- Essa é a configuração usada pelos melhores sites do mundo para celular -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luiza Moura | Estética Avançada</title>
     
@@ -14,16 +13,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
-        /* ================= PALETA DE CORES PREMIUM ================= */
+        /* ================= PALETA DE CORES PREMIUM DARK ================= */
         :root {
             --dourado: #e0ab48; 
             --brand-purple: #e0ab48; 
             --dourado-escuro: #c99335;
-            --fundo-creme: #FDFBF7; 
-            --fundo-secao: #FFFFFF;
-            --azul-petroleo: #1A1A1A; 
-            --texto-escuro: #1A1A1A; 
-            --texto-cinza: #5A5A5A;
+            --fundo-creme: #121212; /* Fundo escuro luxuoso */
+            --fundo-secao: #1A1A1A; /* Cards e blocos ligeiramente mais claros */
+            --azul-petroleo: #0D0D0D; /* Elementos de profundidade máxima */
+            --texto-escuro: #FFFFFF; /* Texto claro para contraste perfeito */
+            --texto-cinza: #A0A0A0; /* Subtítulos e descrições suaves */
             --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -35,7 +34,7 @@
             background-color: var(--fundo-creme);
             color: var(--texto-escuro);
             line-height: 1.8;
-            background-image: radial-gradient(rgba(224, 171, 72, 0.05) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(224, 171, 72, 0.08) 1px, transparent 1px);
             background-size: 20px 20px; 
             overflow-x: hidden; 
         }
@@ -57,6 +56,7 @@
             -webkit-user-select: none;
             -webkit-touch-callout: none;
         }
+
         /* FORÇA O ESPAÇAMENTO DO TÍTULO DOS TRATAMENTOS NO CELULAR */
         @media (max-width: 768px) {
             .servicos-grid .card-servico h3 {
@@ -65,14 +65,15 @@
             }
         }
 
-        /* ================= NAVEGAÇÃO ================= */
+        /* ================= NAVEGAÇÃO GLASSMORPHISM ================= */
         nav {
             position: fixed; top: 0; width: 100%;
-            background-color: rgba(253, 251, 247, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 10px 0;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-            border-bottom: 1px solid rgba(224, 171, 72, 0.2);
+            background-color: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 12px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(224, 171, 72, 0.15);
             z-index: 1000;
         }
         
@@ -83,17 +84,16 @@
             text-decoration: none !important; color: inherit !important; cursor: pointer;
         }
         
-        /* LOGO CORRIGIDA */
         .nav-logo {
             display: flex; justify-content: center; align-items: center;
             height: 70px; width: 70px; border-radius: 50%;
-            border: 2px solid var(--dourado); background-color: #ffffff;
-            box-shadow: 0 4px 10px rgba(224, 171, 72, 0.2);
+            border: 2px solid var(--dourado); background-color: #1a1a1a;
+            box-shadow: 0 4px 15px rgba(224, 171, 72, 0.3);
             overflow: hidden; flex-shrink: 0;
         }
         .nav-logo img { 
             width: 100%; height: 100%; object-fit: cover; display: block;
-            transform: scale(1.3); /* Dá o zoom na logo sem quebrar o layout */
+            transform: scale(1.3); 
             filter: saturate(1.4) contrast(1.1);
         }
 
@@ -122,7 +122,7 @@
 
         .btn-nav {
             background-color: var(--dourado); color: #fff !important;
-            padding: 12px 28px; border-radius: 30px; font-weight: 600; 
+            padding: 12px 28px; border-radius: 50px; font-weight: 600; 
             letter-spacing: 1.5px; box-shadow: 0 4px 15px rgba(224, 171, 72, 0.4);
         }
         .btn-nav:hover { background-color: var(--dourado-escuro); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(224, 171, 72, 0.5); }
@@ -130,20 +130,20 @@
         /* ================= TOPO: CARROSSEL ESTILO INSTAGRAM ================= */
         .top-insta-slider {
             padding: 160px 0 60px 0; 
-            background-color: #e9b658; 
+            background-color: var(--azul-petroleo); 
             text-align: center;
         }
 
         .top-insta-slider h1 {
             font-size: 2.5rem; color: #ffffff; margin-bottom: 40px;
         }
-        .top-insta-slider h1 span { color: var(--texto-escuro); font-style: italic; }
+        .top-insta-slider h1 span { color: var(--dourado); font-style: italic; }
 
         .top-insta-slider .swiper { max-width: 1000px; padding: 20px 40px; }
         .top-insta-slider .swiper-slide {
-            aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); background-color: #fff;
-            position: relative;
+            aspect-ratio: 1 / 1; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); background-color: #1a1a1a;
+            position: relative; border: 1px solid rgba(224, 171, 72, 0.15);
         }
         .top-insta-slider .swiper-slide img {
             width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; transform: scale(1);
@@ -152,32 +152,34 @@
 
         .zoom-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.3); display: flex; justify-content: center; align-items: center;
-            opacity: 0; transition: var(--transicao); pointer-events: none; color: #fff; font-size: 30px;
+            background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center;
+            opacity: 0; transition: var(--transicao); pointer-events: none; color: var(--dourado); font-size: 30px;
         }
         .top-insta-slider .swiper-slide:hover .zoom-overlay { opacity: 1; }
 
         .top-insta-slider .btn-insta {
             display: inline-flex; align-items: center; gap: 10px;
-            background: var(--texto-escuro); 
-            color: #fff; padding: 14px 40px; border-radius: 30px; font-weight: 500;
+            background: var(--dourado); 
+            color: #fff; padding: 14px 40px; border-radius: 50px; font-weight: 600;
             font-size: 15px; text-decoration: none; margin-top: 30px; transition: var(--transicao);
+            box-shadow: 0 4px 15px rgba(224, 171, 72, 0.3);
         }
-        .top-insta-slider .btn-insta:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+        .top-insta-slider .btn-insta:hover { background-color: var(--dourado-escuro); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(224, 171, 72, 0.5); }
 
-        .top-insta-slider .swiper-button-next, .top-insta-slider .swiper-button-prev { color: var(--texto-escuro); }
+        .top-insta-slider .swiper-button-next, .top-insta-slider .swiper-button-prev { color: var(--dourado); }
         .top-insta-slider .swiper-button-next::after, .top-insta-slider .swiper-button-prev::after { font-size: 28px; font-weight: 300; }
 
         /* ================= MODAL DE IMAGEM AMPLIADA ================= */
         .modal-imagem {
             display: none; position: fixed; z-index: 10000; padding-top: 60px;
             left: 0; top: 0; width: 100%; height: 100%; overflow: hidden;
-            background-color: rgba(0,0,0,0.9); backdrop-filter: blur(5px);
+            background-color: rgba(0,0,0,0.95); backdrop-filter: blur(8px);
         }
         .modal-imagem-conteudo {
             margin: auto; display: block; max-width: 90%; max-height: 80vh;
-            border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
             animation: zoomAnim 0.3s ease; object-fit: contain; cursor: default;
+            border: 1px solid rgba(224, 171, 72, 0.2);
         }
         @keyframes zoomAnim { from {transform:scale(0.8); opacity:0;} to {transform:scale(1); opacity:1;} }
         
@@ -190,16 +192,17 @@
         .seta-galeria {
             cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%);
             color: #fff; font-weight: bold; font-size: 30px; transition: 0.3s;
-            user-select: none; z-index: 10001; background: rgba(0,0,0,0.5);
+            user-select: none; z-index: 10001; background: rgba(0,0,0,0.6);
             border-radius: 50%; height: 60px; width: 60px;
             display: flex; align-items: center; justify-content: center;
+            border: 1px solid rgba(224, 171, 72, 0.2);
         }
-        .seta-galeria:hover { background: rgba(0,0,0,0.9); color: var(--dourado); }
+        .seta-galeria:hover { background: rgba(0,0,0,0.9); color: var(--dourado); border-color: var(--dourado); }
         .seta-esq { left: 3%; }
         .seta-dir { right: 3%; }
 
         /* ================= SEÇÕES GERAIS ================= */
-        section { padding: 90px 0; }
+        section { padding: 100px 0; }
         .secao-titulo { text-align: center; margin-bottom: 60px; position: relative; }
         .secao-titulo h2 { font-size: 2.8rem; color: var(--texto-escuro); margin-bottom: 15px; }
         .secao-titulo h2 span { color: var(--dourado); }
@@ -208,164 +211,168 @@
             content: ''; display: block; width: 60px; height: 3px; background: var(--dourado); margin: 25px auto 0; border-radius: 2px;
         }
 
-        /* ================= SERVIÇOS ================= */
+        /* ================= TRATAMENTOS (CARDS SOFISTICADOS) ================= */
         .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
         .card-servico {
-            background: var(--fundo-secao); padding: 50px 40px; border-radius: 16px; text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: var(--transicao);
-            border: 1px solid rgba(224, 171, 72, 0.2); text-decoration: none; color: inherit; display: block; position: relative; overflow: hidden;
+            background: var(--fundo-secao); padding: 50px 40px; border-radius: 24px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: var(--transicao);
+            border: 1px solid rgba(224, 171, 72, 0.12); text-decoration: none; color: inherit; display: block; position: relative; overflow: hidden;
         }
         .card-servico::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--dourado); transform: scaleX(0); transition: var(--transicao);
         }
-        .card-servico:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); }
+        .card-servico:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(224, 171, 72, 0.15); border-color: rgba(224, 171, 72, 0.4); }
         .card-servico:hover::before { transform: scaleX(1); }
         
         .icone-wrap {
-            width: 80px; height: 80px; background: rgba(224, 171, 72, 0.1); border-radius: 50%;
+            width: 80px; height: 80px; background: rgba(224, 171, 72, 0.08); border-radius: 50%;
             display: flex; justify-content: center; align-items: center; margin: 0 auto 25px;
             color: var(--dourado); font-size: 35px; transition: var(--transicao);
+            border: 1px solid rgba(224, 171, 72, 0.2);
         }
-        .card-servico:hover .icone-wrap { background: var(--dourado); color: #fff; transform: rotateY(360deg); }
-        .card-servico h3 { font-size: 1.6rem; margin-bottom: 15px; }
-        .card-servico p { font-size: 1rem; color: var(--texto-cinza); margin-bottom: 20px; line-height: 1.6; }
+        .card-servico:hover .icone-wrap { background: var(--dourado); color: #fff; transform: rotateY(360deg); box-shadow: 0 4px 15px rgba(224, 171, 72, 0.4); }
+        .card-servico h3 { font-size: 1.6rem; margin-bottom: 15px; color: #ffffff; }
+        .card-servico p { font-size: 1rem; color: var(--texto-cinza); margin-bottom: 20px; line-height: 1.7; }
         .link-detalhes { margin-top: auto; color: var(--dourado); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
 
         /* ================= SOBRE A LUIZA ================= */
+        .sobre { background-color: var(--azul-petroleo); }
         .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
         .imagem-moldura { position: relative; z-index: 1; }
         .imagem-moldura::before {
-            content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%;
-            border: 2px solid var(--dourado); border-radius: 12px; z-index: -1;
+            content: ''; position: absolute; top: -15px; left: -15px; width: 100%; height: 100%;
+            border: 2px solid var(--dourado); border-radius: 24px; z-index: -1;
         }
-        .sobre-img { width: 100%; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); object-fit: cover; }
-        .sobre-texto h2 { font-size: 2.5rem; color: var(--texto-escuro); margin-bottom: 25px; }
+        .sobre-img { width: 100%; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); object-fit: cover; }
+        .sobre-texto h2 { font-size: 2.5rem; color: #ffffff; margin-bottom: 25px; }
         .sobre-texto p { font-size: 1.1rem; color: var(--texto-cinza); margin-bottom: 20px; }
         .sobre-texto ul { list-style: none; margin-top: 30px; }
-        .sobre-texto ul li { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; font-weight: 500; }
-        .sobre-texto ul li i { color: var(--dourado); font-size: 20px; background: rgba(224, 171, 72, 0.1); padding: 10px; border-radius: 50%; }
+        .sobre-texto ul li { margin-bottom: 18px; display: flex; align-items: center; gap: 15px; font-weight: 500; color: #ffffff; }
+        .sobre-texto ul li i { color: var(--dourado); font-size: 20px; background: rgba(224, 171, 72, 0.1); padding: 12px; border-radius: 50%; border: 1px solid rgba(224, 171, 72, 0.15); }
 
         /* ================= DEPOIMENTOS ================= */
-        .depoimentos { background-color: var(--azul-petroleo); color: #fff; position: relative; }
-        .depoimentos::after {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-            background-size: 30px 30px; opacity: 0.5; pointer-events: none;
-        }
-        .depoimentos .secao-titulo h2 { color: #fff; }
-        .depoimentos .secao-titulo::after { background: var(--dourado); }
+        .depoimento-section { background-color: var(--fundo-creme); }
+        .depoimentos { background-color: var(--fundo-creme); color: #fff; position: relative; }
         .depoimentos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; position: relative; z-index: 2; }
         .card-depoimento { 
-            background: rgba(255,255,255,0.03); padding: 40px; border-radius: 16px; 
-            border: 1px solid rgba(224, 171, 72, 0.2); backdrop-filter: blur(5px);
+            background: var(--fundo-secao); padding: 45px; border-radius: 24px; 
+            border: 1px solid rgba(224, 171, 72, 0.12); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
         .estrelas { color: var(--dourado); margin-bottom: 20px; font-size: 18px; }
         .card-depoimento p { font-size: 1.1rem; font-style: italic; margin-bottom: 20px; line-height: 1.8; color: #E0E0E0; }
 
-        /* ================= AGENDAMENTO ================= */
-        #agendar { background-color: var(--dourado) !important; }
+        /* ================= AGENDAMENTO (PREMIUM ACCENTS) ================= */
+        #agendar { background-color: var(--azul-petroleo) !important; border-top: 1px solid rgba(224, 171, 72, 0.15); }
         #agendar .secao-titulo h2 { color: #ffffff; }
-        #agendar .secao-titulo h2 span { color: var(--texto-escuro); }
-        #agendar .secao-titulo p { color: #ffffff; }
-        #agendar .secao-titulo::after { background: var(--texto-escuro); }
+        #agendar .secao-titulo h2 span { color: var(--dourado); }
+        #agendar .secao-titulo p { color: var(--texto-cinza); }
+        #agendar .secao-titulo::after { background: var(--dourado); }
 
         .agendar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
         .form-control { 
-            width: 100%; padding: 18px 20px; margin-bottom: 20px; border: 1px solid transparent; 
-            border-radius: 8px; font-family: 'Montserrat'; font-size: 15px; background: #fff;
-            transition: var(--transicao); box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 100%; padding: 18px 20px; margin-bottom: 20px; border: 1px solid rgba(224, 171, 72, 0.15); 
+            border-radius: 14px; font-family: 'Montserrat'; font-size: 15px; background: #1C1C1E; color: #fff;
+            transition: var(--transicao); box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        .form-control:focus { outline: none; box-shadow: 0 0 0 4px rgba(26, 26, 26, 0.2); }
+        .form-control:focus { outline: none; border-color: var(--dourado); box-shadow: 0 0 0 3px rgba(224, 171, 72, 0.2); }
+        select.form-control { color: #A0A0A0; }
+        select.form-control option { background: #1C1C1E; color: #fff; }
         
         .btn-submit { 
-            width: 100%; background: var(--texto-escuro); color: #fff; border: none; padding: 18px; 
-            border-radius: 8px; font-size: 16px; font-weight: 600; text-transform: uppercase; 
+            width: 100%; background: var(--dourado); color: #fff; border: none; padding: 18px; 
+            border-radius: 14px; font-size: 16px; font-weight: 700; text-transform: uppercase; 
             letter-spacing: 1px; cursor: pointer; transition: var(--transicao); 
+            box-shadow: 0 4px 15px rgba(224, 171, 72, 0.3);
         }
-        .btn-submit:hover { background: #333; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+        .btn-submit:hover { background: var(--dourado-escuro); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(224, 171, 72, 0.5); }
         
-        .contato-info { background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .contato-info { background: var(--fundo-secao); padding: 45px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); border: 1px solid rgba(224, 171, 72, 0.12); }
         .contato-info div { margin-bottom: 30px; display: flex; align-items: flex-start; gap: 20px; }
-        .contato-info i { color: var(--dourado); font-size: 24px; margin-top: 5px; }
+        .contato-info h4 { color: #ffffff !important; }
+        .contato-info i { color: var(--dourado); font-size: 24px; margin-top: 5px; background: rgba(224, 171, 72, 0.1); padding: 10px; border-radius: 50%; }
 
         /* ================= MODAL DE SUCESSO ================= */
-        .modal-envio { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center; }
+        .modal-envio { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); z-index: 9999; justify-content: center; align-items: center; }
         .modal-envio.ativo { display: flex; }
-        .modal-conteudo { width: 90%; background: #fff; padding: 40px; border-radius: 20px; max-width: 500px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: slideUp 0.4s ease; }
+        .modal-conteudo { width: 90%; background: #1A1A1A; padding: 40px; border-radius: 24px; max-width: 500px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.6); animation: slideUp 0.4s ease; border: 1px solid rgba(224, 171, 72, 0.2); }
         @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .modal-envio .icone-sucesso { font-size: 60px; color: #4CAF50; margin-bottom: 20px; }
-        .modal-envio h3 { font-size: 28px; color: var(--texto-escuro); margin-bottom: 10px; }
+        .modal-envio h3 { font-size: 28px; color: #ffffff; margin-bottom: 10px; }
         .modal-envio .subtitulo { color: var(--texto-cinza); font-size: 16px; margin-bottom: 30px; }
-        .modal-envio .exemplo-msg { background: #f5f5f5; padding: 20px; border-radius: 12px; margin: 30px 0; text-align: left; border-left: 4px solid var(--dourado); font-size: 14px; color: #333; overflow-wrap: break-word;}
+        .modal-envio .exemplo-msg { background: #262626; padding: 20px; border-radius: 14px; margin: 30px 0; text-align: left; border-left: 4px solid var(--dourado); font-size: 14px; color: #E0E0E0; overflow-wrap: break-word;}
         .modal-envio .botoes-modal { display: flex; gap: 15px; margin-top: 30px; justify-content: center; }
-        .modal-envio .btn-modal { flex: 1; padding: 15px 20px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: var(--transicao); font-size: 14px; max-width: 300px; }
+        .modal-envio .btn-modal { flex: 1; padding: 15px 20px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: var(--transicao); font-size: 14px; max-width: 300px; }
         .btn-modal-primario { background: var(--dourado); color: #fff; }
         .btn-modal-primario:hover { background: var(--dourado-escuro); transform: translateY(-2px); }
 
         /* ================= FOOTER ================= */
-        footer { background: var(--azul-petroleo); color: #fff; text-align: center; padding: 40px 0; border-top: 1px solid rgba(224, 171, 72, 0.2); }
+        footer { background: var(--azul-petroleo); color: #fff; text-align: center; padding: 50px 0; border-top: 1px solid rgba(224, 171, 72, 0.15); }
         
-        /* ================= MEDIA QUERIES (RESPONSIVO CELULAR) ================= */
-        /* ================= O PADRÃO OURO PROFISSIONAL PARA CELULARES ================= */
+        /* ================= MEDIA QUERIES (RESPONSIVO CELULAR PROFISSIONAL) ================= */
         @media (max-width: 768px) {
-            /* Restaura o respiro das bordas da tela */
             .container { padding: 0 20px !important; }
             .meu-carrossel-topo { display: block !important; }
 
-            /* ================= NAVEGAÇÃO AJUSTADA COM OS BOTÕES ================= */
+            /* NAVEGAÇÃO SUPERIOR EM 2 ANDARES */
             .nav-container { 
-                flex-direction: column !important; /* Coloca a logo em cima e os botões embaixo para não espremer */
-                gap: 10px !important;
+                flex-direction: column !important; 
+                gap: 12px !important;
             }
             .nav-links { 
-                display: flex !important; /* Faz os botões voltarem a aparecer! */
+                display: flex !important; 
                 width: 100% !important;
                 justify-content: center !important; 
                 gap: 20px !important;
                 margin-top: 5px !important;
             }
-            .nav-links a { 
-                font-size: 0.8rem !important; /* Tamanho ótimo para leitura no celular */
-            }
-            .btn-nav { 
-                padding: 8px 18px !important; /* Deixa o botão de agendar mais delicado na tela pequena */
-                font-size: 0.8rem !important;
-            }
-            .nav-logo { height: 50px; width: 50px; }
+            .nav-links a { font-size: 0.85rem !important; }
+            .btn-nav { padding: 8px 20px !important; font-size: 0.85rem !important; border-radius: 50px; }
+            .nav-logo { height: 55px; width: 50px; }
             .brand-name { font-size: 1.3rem; }
             .brand-sub { font-size: 0.6rem; }
 
-            /* TRATAMENTOS: Formato "Lista" (Ícone na esquerda, texto na direita) */
+            /* AJUSTE DOS CARDS DE TRATAMENTO EM FORMATO COMPACTO */
             .servicos-grid { 
                 grid-template-columns: 1fr !important; 
-                gap: 15px !important; 
+                gap: 20px !important; 
             }
             .card-servico { 
-                display: flex !important; 
-                flex-direction: row !important; 
-                align-items: center !important; 
-                text-align: left !important;
-                padding: 20px 15px !important;
+                display: block !important; 
+                text-align: center !important;
+                padding: 35px 25px !important; 
+                border-radius: 20px !important;
             }
             .icone-wrap { 
-                flex-shrink: 0; 
-                margin: 0 15px 0 0 !important; 
-                width: 55px !important; 
-                height: 55px !important; 
-                font-size: 22px !important; 
+                margin: 0 auto 20px auto !important; 
+                width: 65px !important; 
+                height: 65px !important; 
+                font-size: 24px !important; 
             }
-            .card-servico div { display: flex; flex-direction: column; }
-            .card-servico h3 { font-size: 1.1rem !important; margin-bottom: 5px !important; }
-            .card-servico p { font-size: 0.85rem !important; margin-bottom: 0 !important; }
-            .link-detalhes { display: none !important; }
+            .card-servico h3 { 
+                font-size: 1.4rem !important; 
+                margin-bottom: 15px !important; 
+                line-height: 1.3 !important;
+            }
+            .card-servico p { 
+                font-size: 0.95rem !important; 
+                line-height: 1.6 !important; 
+                margin-bottom: 15px !important; 
+            }
+            .link-detalhes { 
+                display: inline-block !important; 
+                font-size: 12px !important; 
+                margin-top: 10px !important;
+            }
 
-            /* SOBRE, DEPOIMENTOS E AGENDAR */
+            /* GRIDS GERAIS */
             .sobre-grid, .agendar-grid, .depoimentos-grid { 
                 grid-template-columns: 1fr !important; 
                 gap: 40px !important; 
             }
             
             .imagem-moldura { max-width: 280px; margin: 0 auto; }
+            .imagem-moldura::before { border-radius: 20px; }
+            .sobre-img { border-radius: 20px; }
             
             .secao-titulo { margin-bottom: 40px; }
             .secao-titulo h2 { font-size: 2rem !important; }
@@ -375,54 +382,15 @@
             .sobre-texto p { font-size: 1rem !important; line-height: 1.6 !important; text-align: justify; }
             .sobre-texto ul li { font-size: 0.95rem !important; }
 
-            .form-control, .btn-submit { padding: 15px !important; font-size: 14px !important; }
-            .contato-info { padding: 25px !important; text-align: center; }
+            .form-control { border-radius: 12px !important; padding: 16px !important; }
+            .btn-submit { padding: 16px !important; font-size: 14px !important; border-radius: 12px !important; }
+            .contato-info { padding: 30px 20px !important; text-align: center; border-radius: 20px !important; }
             .contato-info div { flex-direction: column; align-items: center; gap: 5px; }
             .contato-info i { margin-bottom: 10px; }
             
-            /* Ajuste do topo para o título não ficar escondido pelo menu de 2 andares */
             .top-insta-slider { padding-top: 160px; padding-bottom: 40px; }
             .top-insta-slider h1 { font-size: 1.8rem; margin-bottom: 25px; }
         }
-            
-            /* Ajuste da foto no Sobre para parecer capa de revista */
-            .imagem-moldura { max-width: 280px; margin: 0 auto; }
-            
-            /* Textos elegantes e com leitura perfeita */
-            .secao-titulo { margin-bottom: 40px; }
-            .secao-titulo h2 { font-size: 2rem !important; }
-            .secao-titulo p { font-size: 1rem !important; }
-            
-            .sobre-texto h2 { font-size: 1.8rem !important; text-align: center; }
-            .sobre-texto p { font-size: 1rem !important; line-height: 1.6 !important; text-align: justify; }
-            .sobre-texto ul li { font-size: 0.95rem !important; }
-
-            /* Formulários e contatos largos e amigáveis para o toque do dedo */
-            .form-control, .btn-submit { padding: 15px !important; font-size: 14px !important; }
-            .contato-info { padding: 25px !important; text-align: center; }
-            .contato-info div { flex-direction: column; align-items: center; gap: 5px; }
-            .contato-info i { margin-bottom: 10px; }
-            
-            .top-insta-slider { padding-top: 110px; padding-bottom: 40px; }
-            .top-insta-slider h1 { font-size: 1.8rem; margin-bottom: 25px; }
-        
-            /* Diminui um pouco os textos para que caibam nas duas colunas sem espremer */
-            .sobre-texto h2 { font-size: 1.4rem !important; margin-bottom: 10px; }
-            .sobre-texto p { font-size: 0.85rem !important; line-height: 1.4 !important; }
-            .sobre-texto h3 { font-size: 1rem !important; }
-            .sobre-texto ul li { font-size: 0.8rem !important; gap: 8px !important; }
-            .sobre-texto ul li i { font-size: 14px !important; }
-            
-            .card-servico { padding: 15px !important; }
-            .icone-wrap { width: 45px !important; height: 45px !important; font-size: 20px !important; margin-bottom: 10px !important; }
-            .card-servico h3 { font-size: 1rem !important; margin-bottom: 5px !important; }
-            .card-servico p { font-size: 0.8rem !important; margin-bottom: 10px !important; }
-            .link-detalhes { font-size: 10px !important; }
-
-            .form-control, .btn-submit { padding: 10px !important; font-size: 12px !important; margin-bottom: 10px !important; }
-            .contato-info { padding: 15px !important; }
-            .contato-info div { font-size: 0.8rem !important; flex-direction: column !important; gap: 5px !important; }
-        
     </style>
 </head>
 <body>
@@ -490,7 +458,7 @@
         </div>
     </header>
 
-    <section id="servicos" style="background-color: var(--fundo-creme);">
+    <section id="servicos">
         <div class="container">
             <div class="secao-titulo">
                 <h2>Nossos <span>Tratamentos</span></h2>
@@ -564,38 +532,34 @@
             </div>
             <div class="sobre-texto">
                 <div class="secao-titulo" style="text-align: left; margin-bottom: 25px;">
-                    <h2 style="font-family: 'Playfair Display', serif; color: var(--texto-escuro); font-size: 2.2rem;">
-                        Prazer, <span style="color: var(--dourado);">Luiza Moura</span>
-                    </h2>
+                    <h2>Prazer, <span>Luiza Moura</span></h2>
                 </div>
                 
-                <p style="font-size: 1.15rem; color: var(--texto-cinza); margin-bottom: 25px; text-align: justify; line-height: 1.8;">
+                <p>
                     Acredito que a estética vai muito além de procedimentos; é sobre reconexão com a própria autoestima e o cuidado genuíno com a sua melhor versão. Minha trajetória profissional é pautada pelo rigor científico e pela busca incessante pela excelência. 
                 </p>
                 
-                <p style="font-size: 1.15rem; color: var(--texto-cinza); margin-bottom: 25px; text-align: justify; line-height: 1.8;">
+                <p>
                     <strong>Graduada em Estética e Cosmetologia e Pós-graduanda em Estética Avançada</strong>, combino um profundo conhecimento técnico sobre a fisiologia cutânea com as tecnologias mais modernas do mercado. Minha prática é guiada por um olhar atento à harmonia facial e corporal, sempre respeitando a singularidade de cada paciente em um ambiente que preza pelo conforto, privacidade e biossegurança.
                 </p>
                 
-                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.2rem; color: var(--texto-escuro); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
-                    O que nos diferencia:
-                </h3>
+                <h3>O que nos diferencia:</h3>
                 
-                <ul style="list-style: none;">
-                    <li style="margin-bottom: 18px; font-weight: 500; color: var(--texto-escuro);">
-                        <i class="fas fa-award" style="color: var(--dourado); margin-right: 12px; width: 20px;"></i> 
+                <ul>
+                    <li>
+                        <i class="fas fa-award"></i> 
                         <strong>Especialista em Procedimentos Injetáveis:</strong> Expertise técnica voltada para resultados harmônicos e naturais.
                     </li>
-                    <li style="margin-bottom: 18px; font-weight: 500; color: var(--texto-escuro);">
-                        <i class="fas fa-flask" style="color: var(--dourado); margin-right: 12px; width: 20px;"></i> 
+                    <li>
+                        <i class="fas fa-flask"></i> 
                         <strong>Protocolos Exclusivos e Científicos:</strong> Tratamentos personalizados baseados nas necessidades reais da sua pele.
                     </li>
-                    <li style="margin-bottom: 18px; font-weight: 500; color: var(--texto-escuro);">
-                        <i class="fas fa-gem" style="color: var(--dourado); margin-right: 12px; width: 20px;"></i> 
+                    <li>
+                        <i class="fas fa-gem"></i> 
                         <strong>Ambiente Clínico de Alto Padrão:</strong> Um espaço exclusivo de estética avançada projetado para o seu conforto e bem-estar.
                     </li>
-                    <li style="margin-bottom: 18px; font-weight: 500; color: var(--texto-escuro);">
-                        <i class="fas fa-user-check" style="color: var(--dourado); margin-right: 12px; width: 20px;"></i> 
+                    <li>
+                        <i class="fas fa-user-check"></i> 
                         <strong>Atendimento Humanizado:</strong> Acompanhamento próximo e transparente em todas as etapas da sua jornada estética.
                     </li>
                 </ul>
@@ -603,11 +567,11 @@
         </div>
     </section>
 
-    <section id="depoimentos" class="depoimentos">
-        <div class="container">
+    <section id="depoimentos" class="depoimento-section">
+        <div class="container depoimentos">
             <div class="secao-titulo">
                 <h2>Experiências <span>Reais</span></h2>
-                <p style="color: #E0E0E0;">A satisfação de quem já confiou em nossos protocolos.</p>
+                <p style="color: var(--texto-cinza);">A satisfação de quem já confiou em nossos protocolos.</p>
             </div>
             <div class="depoimentos-grid">
                 <div class="card-depoimento">
@@ -624,7 +588,7 @@
         </div>
     </section>
 
-    <section id="agendar" style="background-color: var(--dourado);">
+    <section id="agendar">
         <div class="container">
             <div class="secao-titulo">
                 <h2>Agende sua <span>Avaliação</span></h2>
