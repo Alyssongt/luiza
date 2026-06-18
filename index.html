@@ -18,11 +18,11 @@
             --dourado: #e0ab48; 
             --brand-purple: #e0ab48; 
             --dourado-escuro: #c99335;
-            --fundo-creme: #121212; /* Fundo escuro luxuoso */
-            --fundo-secao: #1A1A1A; /* Cards e blocos ligeiramente mais claros */
-            --azul-petroleo: #0D0D0D; /* Elementos de profundidade máxima */
-            --texto-escuro: #FFFFFF; /* Texto claro para contraste perfeito */
-            --texto-cinza: #A0A0A0; /* Subtítulos e descrições suaves */
+            --fundo-creme: #121212; 
+            --fundo-secao: #1A1A1A; 
+            --azul-petroleo: #0D0D0D; 
+            --texto-escuro: #FFFFFF; 
+            --texto-cinza: #A0A0A0; 
             --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -55,14 +55,6 @@
             user-select: none;
             -webkit-user-select: none;
             -webkit-touch-callout: none;
-        }
-
-        /* FORÇA O ESPAÇAMENTO DO TÍTULO DOS TRATAMENTOS NO CELULAR */
-        @media (max-width: 768px) {
-            .servicos-grid .card-servico h3 {
-                margin-bottom: 15px !important;
-                padding-bottom: 5px !important;
-            }
         }
 
         /* ================= NAVEGAÇÃO GLASSMORPHISM ================= */
@@ -299,97 +291,101 @@
         .modal-envio .icone-sucesso { font-size: 60px; color: #4CAF50; margin-bottom: 20px; }
         .modal-envio h3 { font-size: 28px; color: #ffffff; margin-bottom: 10px; }
         .modal-envio .subtitulo { color: var(--texto-cinza); font-size: 16px; margin-bottom: 30px; }
-        .modal-envio .exemplo-msg { background: #262626; padding: 20px; border-radius: 14px; margin: 30px 0; text-align: left; border-left: 4px solid var(--dourado); font-size: 14px; color: #E0E0E0; overflow-wrap: break-word;}
+        .modal-envio .exemplo-msg { background: #262626; padding: 20px; border-radius: 14px; margin: 30px 0; text-align: left; border-left: 4px solid var(--dourado); font-size: 14px; color: #333; overflow-wrap: break-word;}
         .modal-envio .botoes-modal { display: flex; gap: 15px; margin-top: 30px; justify-content: center; }
         .modal-envio .btn-modal { flex: 1; padding: 15px 20px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: var(--transicao); font-size: 14px; max-width: 300px; }
         .btn-modal-primario { background: var(--dourado); color: #fff; }
         .btn-modal-primario:hover { background: var(--dourado-escuro); transform: translateY(-2px); }
 
-        /* ================= FOOTER ================= */
-        footer { background: var(--azul-petroleo); color: #fff; text-align: center; padding: 50px 0; border-top: 1px solid rgba(224, 171, 72, 0.15); }
-        
-        /* ================= MEDIA QUERIES (RESPONSIVO CELULAR PROFISSIONAL) ================= */
+        /* ================= MEDIA QUERIES (RESPONSIVO SLIM E COMPACTO) ================= */
         @media (max-width: 768px) {
-            .container { padding: 0 20px !important; }
-            .meu-carrossel-topo { display: block !important; }
+            .container { padding: 0 15px !important; }
+            body { padding-top: 130px; }
 
-            /* NAVEGAÇÃO SUPERIOR EM 2 ANDARES */
+            /* NAVEGAÇÃO COMPACTA EM 2 ANDARES */
             .nav-container { 
                 flex-direction: column !important; 
-                gap: 12px !important;
+                gap: 8px !important;
             }
             .nav-links { 
                 display: flex !important; 
                 width: 100% !important;
                 justify-content: center !important; 
-                gap: 20px !important;
-                margin-top: 5px !important;
+                gap: 15px !important;
+                margin-top: 2px !important;
             }
-            .nav-links a { font-size: 0.85rem !important; }
-            .btn-nav { padding: 8px 20px !important; font-size: 0.85rem !important; border-radius: 50px; }
-            .nav-logo { height: 55px; width: 50px; }
-            .brand-name { font-size: 1.3rem; }
-            .brand-sub { font-size: 0.6rem; }
+            .nav-links a { font-size: 0.75rem !important; letter-spacing: 0.5px !important; }
+            .btn-nav { padding: 6px 14px !important; font-size: 0.75rem !important; }
+            .nav-logo { height: 45px; width: 45px; }
+            .brand-name { font-size: 1.1rem; }
+            .brand-sub { font-size: 0.55rem; letter-spacing: 1.5px; }
 
-            /* AJUSTE DOS CARDS DE TRATAMENTO EM FORMATO COMPACTO */
+            /* ================= GRADE DE TRATAMENTOS SLIM (2 COLUNAS) ================= */
             .servicos-grid { 
-                grid-template-columns: 1fr !important; 
-                gap: 20px !important; 
+                grid-template-columns: repeat(2, 1fr) !important; /* Exibe 2 cards por linha */
+                gap: 12px !important; /* Espaço sutil entre eles */
             }
             .card-servico { 
-                display: block !important; 
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
                 text-align: center !important;
-                padding: 35px 25px !important; 
-                border-radius: 20px !important;
+                padding: 20px 10px !important; /* Reduz o tamanho interno do bloco */
+                border-radius: 16px !important;
             }
             .icone-wrap { 
-                margin: 0 auto 20px auto !important; 
-                width: 65px !important; 
-                height: 65px !important; 
-                font-size: 24px !important; 
+                margin: 0 auto 10px auto !important; 
+                width: 45px !important; 
+                height: 45px !important; 
+                font-size: 18px !important; 
             }
             .card-servico h3 { 
-                font-size: 1.4rem !important; 
-                margin-bottom: 15px !important; 
-                line-height: 1.3 !important;
+                font-size: 0.95rem !important; /* Letra menor e delicada */
+                margin-bottom: 6px !important; 
+                line-height: 1.2 !important;
+                font-weight: 600;
             }
             .card-servico p { 
-                font-size: 0.95rem !important; 
-                line-height: 1.6 !important; 
-                margin-bottom: 15px !important; 
+                font-size: 0.75rem !important; /* Texto descritivo pequeno */
+                line-height: 1.4 !important; 
+                margin-bottom: 0 !important; 
+                color: var(--texto-cinza) !important;
             }
             .link-detalhes { 
-                display: inline-block !important; 
-                font-size: 12px !important; 
-                margin-top: 10px !important;
+                display: inline-block !important;
+                font-size: 9px !important; 
+                margin-top: 8px !important;
+                letter-spacing: 0px !important;
             }
 
-            /* GRIDS GERAIS */
+            /* GRIDS GERAIS REDUZIDOS */
             .sobre-grid, .agendar-grid, .depoimentos-grid { 
                 grid-template-columns: 1fr !important; 
-                gap: 40px !important; 
+                gap: 30px !important; 
             }
             
-            .imagem-moldura { max-width: 280px; margin: 0 auto; }
-            .imagem-moldura::before { border-radius: 20px; }
-            .sobre-img { border-radius: 20px; }
+            .imagem-moldura { max-width: 240px; margin: 0 auto; }
+            .imagem-moldura::before { border-radius: 16px; top: -10px; left: -10px; }
+            .sobre-img { border-radius: 16px; }
             
-            .secao-titulo { margin-bottom: 40px; }
-            .secao-titulo h2 { font-size: 2rem !important; }
-            .secao-titulo p { font-size: 1rem !important; }
+            .secao-titulo { margin-bottom: 30px; }
+            .secao-titulo h2 { font-size: 1.6rem !important; }
+            .secao-titulo p { font-size: 0.9rem !important; }
             
-            .sobre-texto h2 { font-size: 1.8rem !important; text-align: center; }
-            .sobre-texto p { font-size: 1rem !important; line-height: 1.6 !important; text-align: justify; }
-            .sobre-texto ul li { font-size: 0.95rem !important; }
+            .sobre-texto h2 { font-size: 1.5rem !important; text-align: center; }
+            .sobre-texto p { font-size: 0.88rem !important; line-height: 1.5 !important; }
+            .sobre-texto ul li { font-size: 0.85rem !important; margin-bottom: 12px !important; gap: 10px !important; }
+            .sobre-texto ul li i { padding: 8px; font-size: 14px; }
 
-            .form-control { border-radius: 12px !important; padding: 16px !important; }
-            .btn-submit { padding: 16px !important; font-size: 14px !important; border-radius: 12px !important; }
-            .contato-info { padding: 30px 20px !important; text-align: center; border-radius: 20px !important; }
-            .contato-info div { flex-direction: column; align-items: center; gap: 5px; }
-            .contato-info i { margin-bottom: 10px; }
+            .form-control { border-radius: 10px !important; padding: 14px !important; font-size: 13px !important; margin-bottom: 12px !important; }
+            .btn-submit { padding: 14px !important; font-size: 13px !important; border-radius: 10px !important; }
+            .contato-info { padding: 25px 15px !important; border-radius: 16px !important; }
+            .contato-info div { flex-direction: column; align-items: center; gap: 4px; margin-bottom: 20px !important; }
+            .contato-info i { margin-bottom: 6px; padding: 8px; font-size: 18px; }
             
-            .top-insta-slider { padding-top: 160px; padding-bottom: 40px; }
-            .top-insta-slider h1 { font-size: 1.8rem; margin-bottom: 25px; }
+            .top-insta-slider { padding-top: 140px; padding-bottom: 30px; }
+            .top-insta-slider h1 { font-size: 1.5rem; margin-bottom: 20px; }
+            .top-insta-slider .btn-insta { padding: 10px 25px; font-size: 13px; }
         }
     </style>
 </head>
@@ -548,7 +544,7 @@
                 <ul>
                     <li>
                         <i class="fas fa-award"></i> 
-                        <strong>Especialista em Procedimentos Injetáveis:</strong> Expertise técnica voltada para resultados harmônicos e naturais.
+                        <strong>Especialista em Procedimentos Injetáveis:</strong> Expertise técnica voltada para resultados harmônicos and naturais.
                     </li>
                     <li>
                         <i class="fas fa-flask"></i> 
