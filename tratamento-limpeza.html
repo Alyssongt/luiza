@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Limpeza de Pele | Luiza Moura Estética</title>
     
-    <!-- Fontes Oficiais -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -23,25 +22,8 @@
             --preto-estetico: #1A1A1A;
             --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .btn-som { 
-    position: absolute; 
-    bottom: 10px; 
-    right: 10px; 
-    z-index: 10;
-    background: rgba(0,0,0,0.5); 
-    color: white; 
-    border: none; 
-    width: 30px; 
-    height: 30px; 
-    border-radius: 50%; 
-    cursor: pointer; 
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(4px);
-}
-        
+
+        /* ================= RESET E BASE ================= */
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         
         body { 
@@ -67,7 +49,7 @@
             opacity: 0.04; z-index: -10; pointer-events: none; 
         }
 
-        /* ================= PROTEÇÃO DE IMAGENS ================= */
+        /* ================= PROTEÇÃO DE IMAGENS E VÍDEOS ================= */
         img, video { -webkit-user-drag: none; user-select: none; -webkit-touch-callout: none; }
 
         /* ================= NAVEGAÇÃO SUPERIOR FIXA ================= */
@@ -111,7 +93,7 @@
         .header-tratamento h1 { font-size: 3.2rem; margin-bottom: 12px; }
         .header-tratamento p { font-size: 1.2rem; color: var(--texto-cinza); font-weight: 500; }
         
-        /* ====== LISTA DE RESULTADOS (DESIGN INTERCALADO OURO/BRANCO) ====== */
+        /* ====== LISTA DE RESULTADOS ====== */
         .resultados-lista { display: flex; flex-direction: column; gap: 45px; margin-bottom: 60px; }
         
         /* Bloco Dourado (Ímpar) */
@@ -121,7 +103,28 @@
         .resultado-item:nth-child(even) { flex-direction: row-reverse; background-color: #fff; border: 1px solid rgba(224, 171, 72, 0.2); box-shadow: 0 6px 25px rgba(0,0,0,0.05); } 
         
         .resultado-midia { flex: 1; text-align: center; position: relative; }
-        .resultado-midia img, .resultado-midia video { width: 100%; max-height: 460px; object-fit: contain; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+        .resultado-midia img, .resultado-midia video { width: 100%; max-height: 460px; object-fit: cover; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+        
+        /* BOTÃO DE SOM COMPACTO */
+        .btn-som { 
+            position: absolute; 
+            bottom: 10px; 
+            right: 10px; 
+            z-index: 10;
+            background: rgba(0,0,0,0.5); 
+            color: white; 
+            border: none; 
+            width: 30px; 
+            height: 30px; 
+            border-radius: 50%; 
+            cursor: pointer; 
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
         .resultado-texto { flex: 1; padding: 0 15px; }
         
         /* Cores do Texto - Fundo Dourado */
@@ -144,10 +147,6 @@
         .etapa-card:hover { transform: translateY(-3px); border-color: var(--dourado); }
         .etapa-card span { background: var(--dourado); color: #fff; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem; flex-shrink: 0; }
         
-        .detalhes-extras { margin-top: 40px; padding-top: 30px; border-top: 1px solid #f0f0f0; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-        .detalhes-extras p { font-size: 1.1rem; color: var(--texto-escuro); font-weight: 500; }
-        .detalhes-extras i { color: var(--dourado); margin-right: 6px; }
-        
         /* ================= CTA E RODAPÉ PADRÃO PREMIUM ================= */
         .cta-premium { background: var(--preto-estetico); color: #fff; text-align: center; padding: 80px 20px; border-radius: 20px; margin-bottom: 60px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
         .cta-premium h2 { color: #fff; font-size: 2.5rem; margin-bottom: 25px; }
@@ -157,13 +156,12 @@
         footer { background: var(--preto-estetico); color: #fff; text-align: center; padding: 40px 0; border-top: 1px solid rgba(224, 171, 72, 0.2); }
         footer h3 { color: var(--dourado); margin-bottom: 10px; font-size: 24px; }
         footer p { color: #A0A0A0; font-size: 14px; }
-        
-        /* ================= MOBILE PROFISSIONAL (Menu em 2 Andares e Grade 40/60) ================= */
+
+        /* ================= MEDIA QUERIES (RESPONSIVO CELULAR) ================= */
         @media (max-width: 768px) {
             .container { padding: 0 15px !important; }
-            body { padding-top: 130px; } /* Ajuste pelo menu ficar maior */
+            body { padding-top: 130px; } 
 
-            /* Menu em dois andares para não espremer os botões */
             .nav-container { 
                 flex-direction: column !important; 
                 gap: 10px !important;
@@ -181,14 +179,11 @@
             .brand-name { font-size: 1.3rem; }
             .brand-sub { font-size: 0.6rem; }
 
-            /* Ajuste de Títulos para caber na tela */
-            .header-tratamento h1 { font-size: 1.8rem !important; }
+            .header-tratamento h1 { font-size: 1.8rem !important; margin-bottom: 10px !important; }
             .header-tratamento p { font-size: 1rem !important; }
             
-            /* RESULTADOS: Imagem 40% na Esquerda / Texto 60% na Direita */
             .resultados-lista { gap: 20px !important; }
             
-            /* Esta regra força tanto os blocos brancos quanto os dourados a ficarem Imagem -> Texto */
             .resultado-item, .resultado-item:nth-child(even) { 
                 display: grid !important;
                 grid-template-columns: 40% 1fr !important; 
@@ -199,8 +194,7 @@
                 text-align: left !important;
             }
             
-            /* Ajustes da Imagem (40%) */
-            .resultado-midia { margin: 0 !important; }
+            .resultado-midia { margin: 0 !important; display: flex; justify-content: center; align-items: center; }
             .resultado-midia img, .resultado-midia video { 
                 width: 100% !important; 
                 height: 100% !important; 
@@ -208,12 +202,10 @@
                 border-radius: 8px !important; 
             }
 
-            /* Ajustes Finos do Texto (60%) */
             .resultado-texto { padding: 0 !important; }
             .resultado-texto h3 { font-size: 1rem !important; margin-bottom: 8px !important; line-height: 1.2 !important; }
             .resultado-texto p { font-size: 0.75rem !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
 
-            /* Outros Ajustes da Página */
             .conteudo { padding: 30px 20px !important; }
             .conteudo h2 { font-size: 1.5rem !important; margin-bottom: 15px !important; }
             .conteudo .intro-protocolo { font-size: 0.95rem !important; margin-bottom: 25px !important; }
@@ -221,13 +213,12 @@
             
             .cta-premium { padding: 40px 20px !important; }
             .cta-premium h2 { font-size: 1.6rem !important; margin-bottom: 20px !important; }
-            .btn-agendar { padding: 15px 30px !important; font-size: 1rem !important; }
+            .btn-agendar { padding: 15px 25px !important; font-size: 0.9rem !important; }
         }
     </style>
 </head>
 <body>
 
-    <!-- MENU SUPERIOR FIXA -->
     <nav aria-label="Navegação principal">
         <div class="nav-container">
             <a href="index.html" class="brand-box">
@@ -260,18 +251,18 @@
         <div class="resultados-lista">
             <div class="resultado-item">
                 <div class="resultado-midia">
-                          <video 
-                loop 
-                muted 
-                playsinline 
-                preload="metadata" 
-                onclick="this.paused ? this.play() : this.pause()">
-                <source src="videofinal.mp4" type="video/mp4">
-                Seu navegador não suporta vídeos.
-            </video>
-           <button class="btn-som" onclick="liberarSom(this)">
-    <i class="fas fa-volume-mute"></i>
-</button>
+                    <video 
+                        loop 
+                        muted 
+                        playsinline 
+                        preload="metadata" 
+                        onclick="this.paused ? this.play() : this.pause()">
+                        <source src="videofinal.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+                    <button class="btn-som" onclick="liberarSom(this)">
+                        <i class="fas fa-volume-mute"></i>
+                    </button>
                 </div>
                 <div class="resultado-texto">
                     <h3>Resumo do Protocolo Completo</h3>
@@ -324,18 +315,18 @@
             
             <div class="resultado-item">
                 <div class="resultado-midia">
-                     <video 
-                loop 
-                muted 
-                playsinline 
-                preload="metadata" 
-                onclick="this.paused ? this.play() : this.pause()">
-                <source src="WhatsApp Video 2026-06-10 at 22.51.17.mp4" type="video/mp4">
-                Seu navegador não suporta vídeos.
-            </video>
-           <button class="btn-som" onclick="liberarSom(this)">
-    <i class="fas fa-volume-mute"></i>
-</button>
+                    <video 
+                        loop 
+                        muted 
+                        playsinline 
+                        preload="metadata" 
+                        onclick="this.paused ? this.play() : this.pause()">
+                        <source src="WhatsApp Video 2026-06-10 at 22.51.17.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+                    <button class="btn-som" onclick="liberarSom(this)">
+                        <i class="fas fa-volume-mute"></i>
+                    </button>
                 </div>
                 <div class="resultado-texto">
                     <h3>Massagem com Esferas de Crioterapia</h3>
@@ -377,24 +368,37 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DE SOM AUTOMÁTICO INTELIGENTE -->
-<script>
-    function liberarSom(btn) {
+    <script>
+        // Função para alternar o ícone e o som
+        function liberarSom(btn) {
             const video = btn.parentElement.querySelector('video');
+            const icone = btn.querySelector('i');
+            
             if (video.muted) {
                 video.muted = false;
-                btn.innerHTML = '<i class="fas fa-volume-up"></i> Som Ligado';
+                icone.className = 'fas fa-volume-up';
             } else {
                 video.muted = true;
-                btn.innerHTML = '<i class="fas fa-volume-mute"></i> Ativar Som';
+                icone.className = 'fas fa-volume-mute';
             }
         }
 
-        // Tenta dar play automático silencioso
+        // Dá o play automático em todos os vídeos da página
         document.addEventListener("DOMContentLoaded", function() {
-            const video = document.querySelector('video');
-            video.play().catch(e => console.log("Autoplay bloqueado, aguardando clique."));
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.muted = true;
+                let playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Autoplay bloqueado pelo iOS, aguardando toque do usuário.");
+                    });
+                }
+            });
         });
+
+        // Impede download do vídeo ou imagens
+        document.addEventListener('contextmenu', e => e.preventDefault());
     </script>
 </body>
 </html>

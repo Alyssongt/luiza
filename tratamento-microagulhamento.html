@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ================= PALETA DE CORES PREMIUM ================= */
+        /* ================= PALETA DE CORES PREMIUM LIGHT ================= */
         :root {
-            --dourado-rico: #e0ab48; 
+            --dourado: #e0ab48; 
+            --brand-purple: #e0ab48; 
             --bronze-rico: #c99335; 
             --preto-estetico: #1A1A1A; 
             --fundo-creme: #FDFBF7; 
-            --texto-claro: #FDFBF7; 
+            --fundo-secao: #FFFFFF;
             --texto-escuro: #1A1A1A; 
             --texto-cinza: #5A5A5A; 
             --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -50,178 +51,167 @@
         }
 
         /* ================= PROTEÇÃO DE IMAGENS ================= */
-        img, video {
-            -webkit-user-drag: none; user-select: none; -webkit-touch-callout: none;
-        }
+        img, video { -webkit-user-drag: none; user-select: none; -webkit-touch-callout: none; }
 
-        /* ================= NAVEGAÇÃO ================= */
+        /* ================= NAVEGAÇÃO SUPERIOR FIXA ================= */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
             background-color: rgba(253, 251, 247, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 10px 0;
+            backdrop-filter: blur(15px); padding: 10px 0;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-            border-bottom: 1px solid rgba(224, 171, 72, 0.2);
-            z-index: 1000;
+            border-bottom: 1px solid rgba(224, 171, 72, 0.15); z-index: 1000;
         }
         
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         .brand-box { display: flex; align-items: center; gap: 20px; text-decoration: none !important; color: inherit !important; cursor: pointer; }
         .nav-logo {
-            display: flex; justify-content: center; align-items: center;
-            height: 75px; width: 75px; border-radius: 50%;
-            border: 2px solid var(--dourado-rico); background-color: #ffffff;
-            box-shadow: 0 4px 10px rgba(224, 171, 72, 0.2); overflow: hidden; flex-shrink: 0; margin-left: 0; 
+            display: flex; justify-content: center; align-items: center; height: 75px; width: 75px; border-radius: 50%;
+            border: 2px solid var(--dourado); background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(224, 171, 72, 0.2); overflow: hidden; flex-shrink: 0;
         }
-        .nav-logo img { height: 100px; width: 100px; object-fit: cover; display: block; margin-left:1px; margin-top: -1px; filter: saturate(1.4) contrast(1.1); }
+        .nav-logo img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.3); filter: saturate(1.4) contrast(1.1); }
 
         .brand-text-wrapper { display: flex; flex-direction: column; justify-content: center; }
-        .brand-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--dourado-rico) !important; line-height: 1; margin-bottom: 3px; }
-        .brand-sub { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2.5px; color: var(--dourado-rico) !important; }
+        .brand-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--dourado) !important; line-height: 1; margin-bottom: 3px; }
+        .brand-sub { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2.5px; color: var(--dourado) !important; }
         
         .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--texto-escuro); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: var(--transicao); position: relative; }
-        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--dourado-rico); transition: var(--transicao); }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--dourado); transition: var(--transicao); }
         .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: var(--dourado-rico); }
+        .nav-links a:hover { color: var(--dourado); }
 
-        .btn-nav { background-color: var(--dourado-rico); color: #fff !important; padding: 12px 28px; border-radius: 30px; font-weight: 600; letter-spacing: 1.5px; box-shadow: 0 4px 15px rgba(224, 171, 72, 0.4); }
+        .btn-nav { background-color: var(--dourado); color: #fff !important; padding: 12px 28px; border-radius: 30px; font-weight: 600; letter-spacing: 1.5px; box-shadow: 0 4px 15px rgba(224, 171, 72, 0.4); }
         .btn-nav:hover { background-color: var(--bronze-rico); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(224, 171, 72, 0.5); }
 
         /* ====== BOTÃO VOLTAR REDONDO ====== */
         .topo-voltar { text-align: left; margin-bottom: 30px; margin-top: 20px; }
         .btn-voltar { 
-            display: inline-block; color: var(--dourado-rico); text-decoration: none; 
+            display: inline-block; color: var(--dourado); text-decoration: none; 
             font-weight: 600; font-size: 14px; text-transform: uppercase; 
-            transition: 0.3s; border: 1px solid var(--dourado-rico); 
+            transition: 0.3s; border: 1px solid var(--dourado); 
             padding: 10px 25px; border-radius: 30px; 
         }
-        .btn-voltar:hover { background-color: var(--dourado-rico); color: #fff; }
+        .btn-voltar:hover { background-color: var(--dourado); color: #fff; }
 
-        /* ================= SEÇÕES DO TRATAMENTO ================= */
+        /* ================= HEADER TRATAMENTO ================= */
         .header-tratamento { text-align: center; margin-bottom: 50px; }
-        .header-tratamento h1 { font-size: 3.5rem; color: var(--dourado-rico); margin-bottom: 15px; }
+        .header-tratamento h1 { font-size: 3.5rem; color: var(--dourado); margin-bottom: 15px; }
         .header-tratamento p { font-size: 1.25rem; color: var(--texto-cinza); font-weight: 500; }
 
-        /* ====== GRID DETALHADO DO PROTOCOLO ====== */
-        .protocolo-box { background: #fff; padding: 60px 50px; border-radius: 20px; box-shadow: 0 6px 30px rgba(0,0,0,0.05); margin-bottom: 60px; text-align: center; }
-        .protocolo-box h2 { font-size: 2.4rem; color: var(--dourado-rico); margin-bottom: 20px; }
-        .protocolo-box .intro-proto { font-size: 1.15rem; color: var(--texto-cinza); max-width: 800px; margin: 0 auto 35px auto; }
-        
-        .grid-passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 30px 0; text-align: left; }
-        .passo-item { background: var(--fundo-creme); padding: 15px 20px; border-radius: 12px; font-size: 1.05rem; font-weight: 600; color: var(--texto-escuro); display: flex; align-items: center; gap: 12px; border: 1px solid rgba(0,0,0,0.03); transition: var(--transicao); }
-        .passo-item:hover { transform: translateY(-3px); border-color: var(--dourado-rico); }
-        .passo-item span { background: var(--dourado-rico); color: #fff; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem; flex-shrink: 0; }
-
-        .info-rodape { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding-top: 30px; border-top: 1px solid #f0f0f0; margin-top: 40px; }
-        .info-rodape p { font-size: 1.1rem; color: var(--texto-escuro); font-weight: 500; }
-        .info-rodape i { color: var(--dourado-rico); margin-right: 8px; }
-
-        /* ====== CONTEÚDO DETALHADO (FOTOS E TEXTOS) ====== */
+        /* ====== CONTEÚDO DETALHADO (CARDS DESIGN) ====== */
         .resultados-lista { display: flex; flex-direction: column; gap: 45px; margin-bottom: 60px; }
-        .resultado-item { display: flex; align-items: center; gap: 35px; background-color: var(--dourado-rico); padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px rgba(224, 171, 72, 0.2); }
-        .resultado-item:nth-child(even) { flex-direction: row-reverse; background-color: #fff; border: 1px solid rgba(224, 171, 72, 0.2); box-shadow: 0 6px 25px rgba(0,0,0,0.05); }
         
-        .resultado-midia { flex: 1; text-align: center; }
-        .resultado-midia img { width: 100%; max-height: 460px; object-fit: contain; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
-        .resultado-midia i { font-size: 120px; color: rgba(255,255,255,0.8); } 
-        .resultado-item:nth-child(even) .resultado-midia i { color: var(--dourado-rico); }
+        .resultado-item { display: flex; align-items: center; gap: 35px; background-color: var(--dourado); padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px rgba(224, 171, 72, 0.2); }
+        .resultado-item:nth-child(even) { flex-direction: row-reverse; background-color: var(--fundo-secao); border: 1px solid rgba(224, 171, 72, 0.2); box-shadow: 0 6px 25px rgba(0,0,0,0.05); }
+        
+        .resultado-midia { flex: 1; text-align: center; position: relative; }
+        .resultado-midia img { width: 100%; max-height: 480px; object-fit: cover; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); }
+        .resultado-midia i { font-size: 100px; color: rgba(255,255,255,0.9); } 
+        .resultado-item:nth-child(even) .resultado-midia i { color: var(--dourado); }
         
         .resultado-texto { flex: 1; padding: 0 15px; }
         .resultado-texto h3 { font-size: 1.8rem; margin-bottom: 18px; color: #fff; }
         .resultado-item:nth-child(even) .resultado-texto h3 { color: var(--texto-escuro); }
+        
         .resultado-texto p { color: #fff; font-size: 1.1rem; margin-bottom: 14px; line-height: 1.8; font-weight: 500; }
         .resultado-item:nth-child(even) .resultado-texto p { color: var(--texto-cinza); }
+        
         .resultado-texto ul { list-style: none; margin-top: 20px; color: #fff; }
         .resultado-item:nth-child(even) .resultado-texto ul { color: var(--texto-cinza); }
         .resultado-texto ul li { margin-bottom: 10px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
         .resultado-texto ul li i { color: #fff; font-size: 14px; }
-        .resultado-item:nth-child(even) .resultado-texto ul li i { color: var(--dourado-rico); }
+        .resultado-item:nth-child(even) .resultado-texto ul li i { color: var(--dourado); }
+
+        /* ====== GRID DETALHADO DO PROTOCOLO ====== */
+        .protocolo-box { background: var(--fundo-secao); padding: 60px 50px; border-radius: 20px; box-shadow: 0 6px 30px rgba(0,0,0,0.05); margin-bottom: 60px; text-align: center; border: 1px solid rgba(224, 171, 72, 0.1); }
+        .protocolo-box h2 { font-size: 2.4rem; color: var(--dourado); margin-bottom: 20px; }
+        .protocolo-box .intro-proto { font-size: 1.15rem; color: var(--texto-cinza); max-width: 800px; margin: 0 auto 35px auto; }
+        
+        .grid-passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 30px 0; text-align: left; }
+        .passo-item { background: var(--fundo-creme); padding: 15px 20px; border-radius: 12px; font-size: 1.05rem; font-weight: 600; color: var(--texto-escuro); display: flex; align-items: center; gap: 12px; border: 1px solid rgba(0,0,0,0.03); transition: var(--transicao); }
+        .passo-item:hover { transform: translateY(-3px); border-color: var(--dourado); }
+        .passo-item span { background: var(--dourado); color: #fff; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem; flex-shrink: 0; }
+
+        .info-rodape { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding-top: 30px; border-top: 1px solid #f0f0f0; margin-top: 40px; }
+        .info-rodape p { font-size: 1.1rem; color: var(--texto-escuro); font-weight: 500; }
+        .info-rodape i { color: var(--dourado); margin-right: 8px; }
 
         /* ================= CTA PREMIUM (ÁREA DE AGENDAMENTO) ================= */
         .cta-premium { background: var(--preto-estetico); color: #fff; text-align: center; padding: 80px 20px; border-radius: 20px; margin-bottom: 60px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .cta-premium h2 { color: #fff; font-size: 2.5rem; margin-bottom: 25px; }
-        .btn-agendar { display: inline-block; background: var(--dourado-rico); color: #fff; padding: 20px 50px; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 1.1rem; box-shadow: 0 10px 25px rgba(224, 171, 72, 0.3); transition: 0.4s; }
+        .cta-premium h2 { color: #fff; font-size: 2.5rem; margin-bottom: 15px; }
+        .btn-agendar { display: inline-block; background: var(--dourado); color: #fff; padding: 20px 50px; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 1.1rem; box-shadow: 0 10px 25px rgba(224, 171, 72, 0.3); transition: 0.4s; }
         .btn-agendar:hover { background-color: var(--bronze-rico); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(224, 171, 72, 0.4); }
 
         /* ================= RODAPÉ ================= */
         footer { background: var(--preto-estetico); color: #fff; text-align: center; padding: 40px 0; border-top: 1px solid rgba(224, 171, 72, 0.2); }
-        footer h3 { color: var(--dourado-rico); margin-bottom: 10px; font-size: 24px; }
+        footer h3 { color: var(--dourado); margin-bottom: 10px; font-size: 24px; }
         footer p { color: #A0A0A0; font-size: 14px; }
 
-        /* ================= MOBILE PROFISSIONAL (Menu em 2 Andares e Grade 40/60) ================= */
+        /* ================= MOBILE COMPACTO (TIRANDO O ZOOM) ================= */
         @media (max-width: 768px) {
             .container { padding: 0 15px !important; }
             body { padding-top: 130px; }
 
-            /* Menu em dois andares para não espremer os botões */
-            .nav-container { 
-                flex-direction: column !important; 
-                gap: 10px !important;
-            }
-            .nav-links { 
-                display: flex !important; 
-                width: 100% !important;
-                justify-content: center !important; 
-                gap: 15px !important;
-                margin-top: 5px !important;
-            }
-            .nav-links a { font-size: 0.8rem !important; }
-            .btn-nav { padding: 8px 18px !important; font-size: 0.8rem !important; }
-            .nav-logo { height: 50px; width: 50px; }
-            .brand-name { font-size: 1.3rem; }
-            .brand-sub { font-size: 0.6rem; }
+            /* NAVEGAÇÃO 2 ANDARES COMPACTA */
+            .nav-container { flex-direction: column !important; gap: 8px !important; }
+            .nav-links { display: flex !important; width: 100% !important; justify-content: center !important; gap: 15px !important; margin-top: 2px !important; }
+            .nav-links a { font-size: 0.75rem !important; letter-spacing: 0.5px !important; }
+            .btn-nav { padding: 6px 14px !important; font-size: 0.75rem !important; }
+            .nav-logo { height: 45px; width: 45px; }
+            .brand-name { font-size: 1.1rem; }
+            .brand-sub { font-size: 0.55rem; letter-spacing: 1.5px; }
 
-            /* Ajuste de Títulos para caber na tela */
-            .header-tratamento h1 { font-size: 1.8rem !important; margin-bottom: 10px !important; }
-            .header-tratamento p { font-size: 1rem !important; }
+            /* HEADER REDUZIDO */
+            .header-tratamento { margin-bottom: 30px !important; }
+            .header-tratamento h1 { font-size: 1.6rem !important; margin-bottom: 8px !important; line-height: 1.2 !important; }
+            .header-tratamento p { font-size: 0.9rem !important; line-height: 1.4 !important; padding: 0 10px; }
             
-            /* RESULTADOS: Ícone/Imagem 40% na Esquerda / Texto 60% na Direita */
-            .resultados-lista { gap: 20px !important; }
+            /* RESULTADOS: COMPACTOS (Foto/Ícone na Esquerda / Texto na Direita) */
+            .resultados-lista { gap: 15px !important; margin-bottom: 40px !important; }
             
             .resultado-item, .resultado-item:nth-child(even) { 
-                display: grid !important;
-                grid-template-columns: 40% 1fr !important; 
-                gap: 15px !important;
+                display: flex !important;
+                flex-direction: row !important;
                 align-items: center !important;
-                padding: 20px 15px !important;
-                border-radius: 12px !important;
+                padding: 15px 12px !important;
+                border-radius: 14px !important;
+                gap: 15px !important;
                 text-align: left !important;
             }
             
-            /* Ajustes da Imagem ou Ícone (40%) */
-            .resultado-midia { margin: 0 !important; display: flex; justify-content: center; align-items: center; }
-            .resultado-midia img { 
-                width: 100% !important; 
-                height: 100% !important; 
-                object-fit: cover !important; 
-                border-radius: 8px !important; 
-            }
-            .resultado-midia i { font-size: 60px !important; }
+            /* Mídia Compacta */
+            .resultado-midia { flex: 0 0 30% !important; margin: 0 !important; display: flex; justify-content: center; align-items: center; }
+            .resultado-midia img { width: 100% !important; height: 110px !important; object-fit: cover !important; border-radius: 8px !important; }
+            .resultado-midia i { font-size: 40px !important; }
 
-            /* Ajustes Finos do Texto (60%) */
-            .resultado-texto { padding: 0 !important; }
-            .resultado-texto h3 { font-size: 1rem !important; margin-bottom: 8px !important; line-height: 1.2 !important; }
-            .resultado-texto p { font-size: 0.75rem !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
+            /* Textos Mais Delicados */
+            .resultado-texto { flex: 1 !important; padding: 0 !important; }
+            .resultado-texto h3 { font-size: 0.9rem !important; margin-bottom: 6px !important; line-height: 1.2 !important; }
+            .resultado-texto p { font-size: 0.75rem !important; line-height: 1.3 !important; margin-bottom: 6px !important; }
+
+            .resultado-texto ul { margin-top: 8px !important; }
+            .resultado-texto ul li { font-size: 0.75rem !important; align-items: flex-start !important; line-height: 1.4 !important; margin-bottom: 6px !important; gap: 8px !important; }
+            .resultado-texto ul li i { font-size: 9px !important; margin-top: 4px; }
+
+            /* PROTOCOLO - 2 COLUNAS PARA FICAR COMPACTO */
+            .protocolo-box { padding: 25px 15px !important; border-radius: 16px !important; margin-bottom: 40px !important; }
+            .protocolo-box h2 { font-size: 1.4rem !important; margin-bottom: 10px !important; }
+            .protocolo-box .intro-proto { font-size: 0.85rem !important; margin-bottom: 20px !important; line-height: 1.4 !important; }
             
-            .resultado-texto ul { margin-top: 10px !important; }
-            .resultado-texto ul li { font-size: 0.75rem !important; align-items: flex-start !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
-            .resultado-texto ul li i { font-size: 10px !important; margin-top: 3px; }
-
-            /* Outros Ajustes da Página */
-            .protocolo-box { padding: 30px 20px !important; }
-            .protocolo-box h2 { font-size: 1.5rem !important; margin-bottom: 15px !important; }
-            .protocolo-box .intro-proto { font-size: 0.95rem !important; margin-bottom: 25px !important; }
-            .passo-item { font-size: 0.85rem !important; padding: 12px 15px !important; }
+            .grid-passos { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; margin: 20px 0 !important; }
+            .passo-item { font-size: 0.7rem !important; padding: 10px !important; border-radius: 10px !important; gap: 6px !important; flex-direction: column; text-align: center; justify-content: center; }
+            .passo-item span { width: 22px !important; height: 22px !important; font-size: 0.75rem !important; margin-bottom: 2px !important; }
             
-            .info-rodape { flex-direction: column !important; gap: 10px !important; text-align: left !important;}
-            .info-rodape p { font-size: 0.85rem !important; }
+            .info-rodape { flex-direction: column !important; gap: 8px !important; padding-top: 15px !important; margin-top: 20px !important; text-align: center !important; }
+            .info-rodape p { font-size: 0.8rem !important; margin: 0 !important; }
 
-            .cta-premium { padding: 40px 20px !important; }
-            .cta-premium h2 { font-size: 1.6rem !important; margin-bottom: 15px !important; }
-            .cta-premium p { font-size: 0.9rem !important; margin-bottom: 20px !important; }
-            .btn-agendar { padding: 15px 25px !important; font-size: 0.9rem !important; }
+            /* CTA PREMIUM REDUZIDO */
+            .cta-premium { padding: 35px 20px !important; border-radius: 16px !important; margin-bottom: 40px !important; }
+            .cta-premium h2 { font-size: 1.4rem !important; margin-bottom: 10px !important; line-height: 1.2 !important; }
+            .cta-premium p { font-size: 0.85rem !important; margin-bottom: 20px !important; line-height: 1.4 !important; }
+            .btn-agendar { padding: 12px 25px !important; font-size: 0.85rem !important; border-radius: 30px !important; }
         }
     </style>
 </head>
@@ -229,20 +219,20 @@
 
     <nav aria-label="Navegação principal">
         <div class="nav-container">
-      <a href="index.html" class="brand-box">
-            <div class="nav-logo"><img src="logotipo (3).png" alt="Luiza Moura"></div>
-            <div class="brand-text-wrapper">
-                <div class="brand-name">Luiza Moura</div>
-                <div class="brand-sub">Estética Avançada</div>
-            </div>
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html#sobre">Sobre</a></li>
-            <li><a href="index.html#servicos">Tratamentos</a></li>
-            <li><a href="index.html#agendar" class="btn-nav">Agendar</a></li>
-        </ul>
-    </div>
-  </nav>
+            <a href="index.html" class="brand-box">
+                <div class="nav-logo"><img src="logotipo (3).png" alt="Luiza Moura"></div>
+                <div class="brand-text-wrapper">
+                    <div class="brand-name">Luiza Moura</div>
+                    <div class="brand-sub">Estética Avançada</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#servicos">Tratamentos</a></li>
+                <li><a href="index.html#agendar" class="btn-nav">Agendar</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
         

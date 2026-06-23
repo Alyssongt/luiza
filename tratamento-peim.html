@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ================= PALETA DE CORES PREMIUM ================= */
+        /* ================= PALETA DE CORES PREMIUM LIGHT ================= */
         :root { 
             --dourado: #e0ab48; 
+            --brand-purple: #e0ab48; 
             --bronze-rico: #c99335; 
             --preto-estetico: #1A1A1A; 
             --fundo-creme: #FDFBF7; 
+            --fundo-secao: #FFFFFF;
             --texto-escuro: #1A1A1A; 
             --texto-cinza: #5A5A5A; 
             --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -49,7 +51,7 @@
         /* ================= PROTEÇÃO DE IMAGENS ================= */
         img, video { -webkit-user-drag: none; user-select: none; -webkit-touch-callout: none; }
 
-        /* ================= NAVEGAÇÃO ================= */
+        /* ================= NAVEGAÇÃO SUPERIOR FIXA ================= */
         nav { 
             position: fixed; top: 0; left: 0; width: 100%; 
             background: rgba(253, 251, 247, 0.95); backdrop-filter: blur(15px); 
@@ -64,7 +66,7 @@
             border: 2px solid var(--dourado); background-color: #ffffff;
             box-shadow: 0 4px 10px rgba(224, 171, 72, 0.2); overflow: hidden; flex-shrink: 0; 
         }
-        .nav-logo img { height: 100px; width: 100px; object-fit: cover; display: block; filter: saturate(1.4) contrast(1.1); }
+        .nav-logo img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.3); filter: saturate(1.4) contrast(1.1); }
 
         .brand-text-wrapper { display: flex; flex-direction: column; justify-content: center; }
         .brand-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--dourado) !important; line-height: 1; margin-bottom: 3px; }
@@ -92,11 +94,31 @@
         /* ====== RESULTADOS (IMAGEM + TEXTO) ====== */
         .resultados-lista { display: flex; flex-direction: column; gap: 45px; margin-bottom: 60px; }
         .resultado-item { display: flex; align-items: center; gap: 35px; background-color: var(--dourado); padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px rgba(224, 171, 72, 0.2); }
-        .resultado-item:nth-child(even) { flex-direction: row-reverse; background-color: #fff; border: 1px solid rgba(224, 171, 72, 0.2); box-shadow: 0 6px 25px rgba(0,0,0,0.05); }
+        .resultado-item:nth-child(even) { flex-direction: row-reverse; background-color: var(--fundo-secao); border: 1px solid rgba(224, 171, 72, 0.2); box-shadow: 0 6px 25px rgba(0,0,0,0.05); }
         
-        .resultado-midia { flex: 1; text-align: center; }
-        .resultado-midia img, .resultado-midia video { width: 100%; max-height: 460px; object-fit: cover; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); }
+        .resultado-midia { flex: 1; text-align: center; position: relative; }
+        .resultado-midia img, .resultado-midia video { width: 100%; max-height: 480px; object-fit: cover; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); display: block; }
         
+        /* BOTÃO DE SOM COMPACTO */
+        .btn-som { 
+            position: absolute; 
+            bottom: 10px; 
+            right: 10px; 
+            z-index: 10;
+            background: rgba(0,0,0,0.5); 
+            color: white; 
+            border: none; 
+            width: 30px; 
+            height: 30px; 
+            border-radius: 50%; 
+            cursor: pointer; 
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
         .resultado-texto { flex: 1; padding: 0 15px; }
         .resultado-texto h3 { font-size: 1.8rem; margin-bottom: 18px; color: #fff; }
         .resultado-item:nth-child(even) .resultado-texto h3 { color: var(--texto-escuro); }
@@ -113,65 +135,58 @@
         footer h3 { color: var(--dourado); margin-bottom: 10px; font-size: 24px; }
         footer p { color: #A0A0A0; font-size: 14px; }
 
-        /* ================= MOBILE PROFISSIONAL (Menu em 2 Andares e Grade 40/60) ================= */
+        /* ================= MOBILE COMPACTO (TIRANDO O ZOOM) ================= */
         @media (max-width: 768px) {
             .container { padding: 0 15px !important; }
             body { padding-top: 130px; }
 
-            /* Menu em dois andares para não espremer os botões */
-            .nav-container { 
-                flex-direction: column !important; 
-                gap: 10px !important;
-            }
-            .nav-links { 
-                display: flex !important; 
-                width: 100% !important;
-                justify-content: center !important; 
-                gap: 15px !important;
-                margin-top: 5px !important;
-            }
-            .nav-links a { font-size: 0.8rem !important; }
-            .btn-nav { padding: 8px 18px !important; font-size: 0.8rem !important; }
-            .nav-logo { height: 50px; width: 50px; }
-            .brand-name { font-size: 1.3rem; }
-            .brand-sub { font-size: 0.6rem; }
+            /* NAVEGAÇÃO EM DOIS ANDARES */
+            .nav-container { flex-direction: column !important; gap: 8px !important; }
+            .nav-links { display: flex !important; width: 100% !important; justify-content: center !important; gap: 15px !important; margin-top: 2px !important; }
+            .nav-links a { font-size: 0.75rem !important; letter-spacing: 0.5px !important; }
+            .btn-nav { padding: 6px 14px !important; font-size: 0.75rem !important; }
+            .nav-logo { height: 45px; width: 45px; }
+            .brand-name { font-size: 1.1rem; }
+            .brand-sub { font-size: 0.55rem; letter-spacing: 1.5px; }
 
-            /* Ajuste de Títulos para caber na tela */
-            .header-tratamento h1 { font-size: 1.8rem !important; margin-bottom: 10px !important; }
-            .header-tratamento p { font-size: 1rem !important; }
+            /* HEADER REDUZIDO */
+            .header-tratamento { margin-bottom: 30px !important; }
+            .header-tratamento h1 { font-size: 1.6rem !important; margin-bottom: 8px !important; line-height: 1.2 !important; }
+            .header-tratamento p { font-size: 0.9rem !important; line-height: 1.4 !important; padding: 0 10px; }
             
-            /* RESULTADOS: Imagem 40% na Esquerda / Texto 60% na Direita */
-            .resultados-lista { gap: 20px !important; }
+            /* RESULTADOS COMPACTOS: Imagem/Vídeo Esquerda / Texto Direita */
+            .resultados-lista { gap: 15px !important; margin-bottom: 40px !important; }
             
             .resultado-item, .resultado-item:nth-child(even) { 
-                display: grid !important;
-                grid-template-columns: 40% 1fr !important; 
-                gap: 15px !important;
+                display: flex !important;
+                flex-direction: row !important;
                 align-items: center !important;
-                padding: 15px !important;
-                border-radius: 12px !important;
+                padding: 15px 12px !important;
+                border-radius: 14px !important;
+                gap: 15px !important;
                 text-align: left !important;
             }
             
-            /* Ajustes da Imagem/Vídeo (40%) */
-            .resultado-midia { margin: 0 !important; display: flex; justify-content: center; align-items: center; }
+            /* Imagem/Vídeo Compacto (35% do espaço) */
+            .resultado-midia { flex: 0 0 35% !important; margin: 0 !important; display: flex; justify-content: center; align-items: center; }
             .resultado-midia img, .resultado-midia video { 
                 width: 100% !important; 
-                height: 100% !important; 
+                height: 130px !important; /* Altura ideal para manter proporção no mobile */
                 object-fit: cover !important; 
                 border-radius: 8px !important; 
             }
+            .btn-som { width: 24px; height: 24px; font-size: 10px; bottom: 6px; right: 6px; }
 
-            /* Ajustes Finos do Texto (60%) */
-            .resultado-texto { padding: 0 !important; }
-            .resultado-texto h3 { font-size: 1rem !important; margin-bottom: 8px !important; line-height: 1.2 !important; }
-            .resultado-texto p { font-size: 0.75rem !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
+            /* Textos Mais Delicados */
+            .resultado-texto { flex: 1 !important; padding: 0 !important; }
+            .resultado-texto h3 { font-size: 0.9rem !important; margin-bottom: 6px !important; line-height: 1.2 !important; }
+            .resultado-texto p { font-size: 0.75rem !important; line-height: 1.3 !important; margin-bottom: 6px !important; }
 
-            /* CTA Premium */
-            .cta-premium { padding: 40px 20px !important; }
-            .cta-premium h2 { font-size: 1.6rem !important; margin-bottom: 15px !important; }
-            .cta-premium p { font-size: 0.9rem !important; margin-bottom: 20px !important; }
-            .btn-agendar { padding: 15px 25px !important; font-size: 0.9rem !important; }
+            /* CTA PREMIUM REDUZIDO */
+            .cta-premium { padding: 35px 20px !important; border-radius: 16px !important; margin-bottom: 40px !important; }
+            .cta-premium h2 { font-size: 1.4rem !important; margin-bottom: 10px !important; line-height: 1.2 !important; }
+            .cta-premium p { font-size: 0.85rem !important; margin-bottom: 20px !important; line-height: 1.4 !important; }
+            .btn-agendar { padding: 12px 25px !important; font-size: 0.85rem !important; border-radius: 30px !important; }
         }
     </style>
 </head>
@@ -209,9 +224,19 @@
             
             <div class="resultado-item">
                 <div class="resultado-midia">
-                    <video autoplay muted loop playsinline controlsList="nodownload">
+                    <video 
+                        loop 
+                        muted 
+                        playsinline 
+                        preload="metadata" 
+                        onclick="this.paused ? this.play() : this.pause()">
                         <source src="videoagulha.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
                     </video>
+                    <!-- Adicionado o botão de som ao vídeo -->
+                    <button class="btn-som" onclick="liberarSom(this)">
+                        <i class="fas fa-volume-mute"></i>
+                    </button>
                 </div>
                 <div class="resultado-texto">
                     <h3>Tecnologia e Precisão</h3>
@@ -256,38 +281,37 @@
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const videos = document.querySelectorAll('video');
-            
-            // Força as regras do iPhone (iOS) para liberar o Autoplay
-            videos.forEach(video => {
-                video.muted = true; // Tem que ser mudo
-                video.setAttribute('playsinline', ''); // Obrigatório no iPhone
-                video.setAttribute('webkit-playsinline', ''); // Para iPhones mais antigos
-            });
+    // Função do Botão de Som
+    function liberarSom(btn) {
+        const video = btn.parentElement.querySelector('video');
+        const icone = btn.querySelector('i');
+        
+        if (video.muted) {
+            video.muted = false;
+            icone.className = 'fas fa-volume-up';
+        } else {
+            video.muted = true;
+            icone.className = 'fas fa-volume-mute';
+        }
+    }
 
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
-
-            const videoObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Tenta dar play silenciosamente
-                        let playPromise = entry.target.play();
-                        if (playPromise !== undefined) {
-                            playPromise.catch(error => {
-                                console.log("O iPhone bloqueou o autoplay momentaneamente.", error);
-                            });
-                        }
-                    } else {
-                        entry.target.pause();
-                    }
+    // Play Automático Inteligente
+    document.addEventListener("DOMContentLoaded", function() {
+        const videos = document.querySelectorAll('video');
+        
+        videos.forEach(video => {
+            video.muted = true;
+            let playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Autoplay bloqueado pelo iOS, aguardando toque do usuário.");
                 });
-            }, observerOptions);
-
-            videos.forEach(video => { videoObserver.observe(video); });
+            }
         });
+    });
 
-        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    // Impede download do vídeo ou imagens
+    document.addEventListener('contextmenu', e => e.preventDefault());
     </script>
 </body>
 </html>

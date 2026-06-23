@@ -155,72 +155,68 @@
         footer h3 { color: var(--dourado); margin-bottom: 10px; font-size: 24px; }
         footer p { color: #A0A0A0; font-size: 14px; }
 
-        /* ================= MOBILE PROFISSIONAL (Menu em 2 Andares e Grade 40/60) ================= */
+        /* ================= MOBILE COMPACTO (TIRANDO O ZOOM) ================= */
         @media (max-width: 768px) {
             .container { padding: 0 15px !important; }
             body { padding-top: 130px; }
 
-            /* Menu em dois andares para não espremer os botões */
-            .nav-container { 
-                flex-direction: column !important; 
-                gap: 10px !important;
-            }
-            .nav-links { 
-                display: flex !important; 
-                width: 100% !important;
-                justify-content: center !important; 
-                gap: 15px !important;
-                margin-top: 5px !important;
-            }
-            .nav-links a { font-size: 0.8rem !important; }
-            .btn-nav { padding: 8px 18px !important; font-size: 0.8rem !important; }
-            .nav-logo { height: 50px; width: 50px; }
-            .brand-name { font-size: 1.3rem; }
-            .brand-sub { font-size: 0.6rem; }
+            /* NAVEGAÇÃO 2 ANDARES COMPACTA */
+            .nav-container { flex-direction: column !important; gap: 8px !important; }
+            .nav-links { display: flex !important; width: 100% !important; justify-content: center !important; gap: 15px !important; margin-top: 2px !important; }
+            .nav-links a { font-size: 0.75rem !important; letter-spacing: 0.5px !important; }
+            .btn-nav { padding: 6px 14px !important; font-size: 0.75rem !important; }
+            .nav-logo { height: 45px; width: 45px; }
+            .brand-name { font-size: 1.1rem; }
+            .brand-sub { font-size: 0.55rem; letter-spacing: 1.5px; }
 
-            /* Ajuste de Títulos para caber na tela */
-            .header-tratamento h1 { font-size: 1.8rem !important; margin-bottom: 10px !important; }
-            .header-tratamento p { font-size: 1rem !important; }
+            /* HEADER REDUZIDO */
+            .header-tratamento { margin-bottom: 30px !important; }
+            .header-tratamento h1 { font-size: 1.6rem !important; margin-bottom: 8px !important; line-height: 1.2 !important; }
+            .header-tratamento p { font-size: 0.9rem !important; line-height: 1.4 !important; padding: 0 10px; }
             
-            /* RESULTADOS: Ícone 40% na Esquerda / Texto 60% na Direita */
-            .resultados-lista { gap: 20px !important; }
+            /* RESULTADOS: COMPACTOS (Ícone na Esquerda / Texto na Direita) */
+            .resultados-lista { gap: 15px !important; margin-bottom: 40px !important; }
             
             .resultado-item, .resultado-item:nth-child(even) { 
-                display: grid !important;
-                grid-template-columns: 40% 1fr !important; 
-                gap: 15px !important;
+                display: flex !important;
+                flex-direction: row !important;
                 align-items: center !important;
-                padding: 20px 15px !important;
-                border-radius: 12px !important;
+                padding: 15px 12px !important;
+                border-radius: 14px !important;
+                gap: 15px !important;
                 text-align: left !important;
             }
             
-            /* Ajustes do Ícone (40%) */
-            .resultado-midia { margin: 0 !important; display: flex; justify-content: center; align-items: center; }
-            .resultado-midia i { font-size: 60px !important; }
+            /* Ícone Menor */
+            .resultado-midia { flex: 0 0 25% !important; margin: 0 !important; display: flex; justify-content: center; align-items: center; }
+            .resultado-midia i { font-size: 40px !important; }
 
-            /* Ajustes Finos do Texto (60%) */
-            .resultado-texto { padding: 0 !important; }
-            .resultado-texto h3 { font-size: 1rem !important; margin-bottom: 8px !important; line-height: 1.2 !important; }
-            .resultado-texto p { font-size: 0.75rem !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
+            /* Textos Mais Delicados */
+            .resultado-texto { flex: 1 !important; padding: 0 !important; }
+            .resultado-texto h3 { font-size: 1rem !important; margin-bottom: 6px !important; line-height: 1.2 !important; }
+            .resultado-texto p { font-size: 0.75rem !important; line-height: 1.4 !important; margin-bottom: 6px !important; }
             
-            .resultado-texto ul { margin-top: 10px !important; }
-            .resultado-texto ul li { font-size: 0.75rem !important; align-items: flex-start !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
-            .resultado-texto ul li i { font-size: 10px !important; margin-top: 3px; }
+            .resultado-texto ul { margin-top: 8px !important; }
+            .resultado-texto ul li { font-size: 0.75rem !important; line-height: 1.3 !important; margin-bottom: 5px !important; align-items: flex-start !important; gap: 6px !important; }
+            .resultado-texto ul li i { font-size: 9px !important; margin-top: 3px; }
 
-            /* Outros Ajustes da Página */
-            .protocolo-box { padding: 30px 20px !important; }
-            .protocolo-box h2 { font-size: 1.5rem !important; margin-bottom: 15px !important; }
-            .protocolo-box .intro-proto { font-size: 0.95rem !important; margin-bottom: 25px !important; }
-            .passo-item { font-size: 0.85rem !important; padding: 12px 15px !important; }
+            /* PROTOCOLO - 2 COLUNAS PARA FICAR COMPACTO */
+            .protocolo-box { padding: 25px 15px !important; border-radius: 16px !important; margin-bottom: 40px !important; }
+            .protocolo-box h2 { font-size: 1.4rem !important; margin-bottom: 10px !important; }
+            .protocolo-box .intro-proto { font-size: 0.85rem !important; margin-bottom: 20px !important; line-height: 1.4 !important; }
             
-            .info-rodape { flex-direction: column !important; gap: 10px !important; text-align: left !important;}
-            .info-rodape p { font-size: 0.85rem !important; }
+            .grid-passos { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; margin: 20px 0 !important; }
+            .passo-item { font-size: 0.75rem !important; padding: 10px !important; border-radius: 10px !important; gap: 8px !important; flex-direction: column; text-align: center; justify-content: center; }
+            .passo-item span { width: 25px !important; height: 25px !important; font-size: 0.8rem !important; margin-bottom: 2px !important; }
+            
+            .info-rodape { flex-direction: column !important; gap: 8px !important; padding-top: 15px !important; margin-top: 20px !important; text-align: center !important; }
+            .info-rodape p { font-size: 0.8rem !important; margin: 0 !important; }
 
-            .cta-premium { padding: 40px 20px !important; }
-            .cta-premium h2 { font-size: 1.6rem !important; margin-bottom: 15px !important; }
-            .cta-premium p { font-size: 0.9rem !important; margin-bottom: 20px !important; }
-            .btn-agendar { padding: 15px 25px !important; font-size: 0.9rem !important; }
+            /* CTA PREMIUM REDUZIDO */
+            .cta-premium { padding: 35px 20px !important; border-radius: 16px !important; margin-bottom: 40px !important; }
+            .cta-premium h2 { font-size: 1.4rem !important; margin-bottom: 10px !important; line-height: 1.2 !important; }
+            .cta-premium p { font-size: 0.85rem !important; margin-bottom: 20px !important; line-height: 1.4 !important; }
+            .btn-agendar { padding: 12px 25px !important; font-size: 0.85rem !important; border-radius: 30px !important; }
         }
     </style>
 </head>
@@ -228,20 +224,20 @@
 
     <nav aria-label="Navegação principal">
         <div class="nav-container">
-      <a href="index.html" class="brand-box">
-            <div class="nav-logo"><img src="logotipo (3).png" alt="Luiza Moura"></div>
-            <div class="brand-text-wrapper">
-                <div class="brand-name">Luiza Moura</div>
-                <div class="brand-sub">Estética Avançada</div>
-            </div>
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html#sobre">Sobre</a></li>
-            <li><a href="index.html#servicos">Tratamentos</a></li>
-            <li><a href="index.html#agendar" class="btn-nav">Agendar</a></li>
-        </ul>
-    </div>
-  </nav>
+            <a href="index.html" class="brand-box">
+                <div class="nav-logo"><img src="logotipo (3).png" alt="Luiza Moura"></div>
+                <div class="brand-text-wrapper">
+                    <div class="brand-name">Luiza Moura</div>
+                    <div class="brand-sub">Estética Avançada</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#servicos">Tratamentos</a></li>
+                <li><a href="index.html#agendar" class="btn-nav">Agendar</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
         
